@@ -46,11 +46,9 @@ const getArgument = (key, arg) => {
 const clean = (s) => {
   let r = '';
   if (s) {
-    let b = '<br />';
+    let b = '<br/>';
     r = s.replace(/[\u00A0-\u9999<>\&]/g, function(i) { return '&#'+i.charCodeAt(0)+';';});
-    r = (r + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ b +'$2');
-    b = '<br/>';
-    r = (r + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ b +'$2');
+    r = r.replace(/<\s*\/?br\s*[\/]?>/gi, "\n");
   }
   return r
 }
