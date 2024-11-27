@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Telegram Journey Builder Activity</title>
+
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var config = {
+          baseUrl: "",
+        };
+
+        var dependencies = ["customActivity"];
+
+        require(config, dependencies);
+      })();
+    </script>
+
+    <!--Styles-->
+    <style type="text/css">
+      body {
+        padding: 20px;
+        margin: 0;
+      }
+      .step {
+        display: none;
+      }
+      #step1 {
+        display: block;
+      }
+      #configuration {
+        width: 100%;
+        height: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="step1" class="step">
+      <h3>Configuration JSON</h3>
+      <textarea id="configuration"></textarea>
+      <div class="btn-bar">
+      <input type="button" id="submit-this" value="Click to Test"></input>
+    </div>
+    </div>
+
+
+    <div id="step2" class="step">
+      Here's a second page with some info on it.
+    </div>
+    <div id="step3" class="step">
+      You chose the message:
+      <div id="message"></div>
+    </div>
+    <div id="step4" class="step">
+      Hey, here's a fourth step, just for you. Toggle this on or off from step
+      1.
+    </div>
+
+  </body>
+</html>
