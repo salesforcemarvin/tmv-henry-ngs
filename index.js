@@ -46,7 +46,6 @@ const getArgument = (key, arg) => {
 const clean = (s) => {
   let r = '';
   if (s) {
-    let b = '<br/>';
     // r = s.replace(/[\u00A0-\u9999<>\&]/g, function(i) { return '&#'+i.charCodeAt(0)+';';});
     r = r.replace(/<\s*\/?br\s*[\/]?>/gi, "\n");
   }
@@ -83,7 +82,7 @@ app.all("/execute", async function (req, res) {
 
         let chat_id = getArgument('telegramID', inArguments);
         let emailAddress = getArgument('emailAddress', inArguments);
-        let text = clean(getArgument('customMessage', inArguments));
+        let text = getArgument('customMessage', inArguments);
         let photo = getArgument('bannerPhoto', inArguments);
         let activeCode = getArgument('activationCode', inArguments);
         let registerDate = getArgument('registeredDate', inArguments);
