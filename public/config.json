@@ -28,6 +28,7 @@
           "telegramID": "{{InteractionDefaults.telegramId}}"
         }
       ],
+      "verb": "POST",
       "outArguments": [],
 			"timeout": 100000,
 			"retryCount": 1,
@@ -39,15 +40,19 @@
   },
   "configurationArguments": {
     "save": {
+      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/save"
     },
     "publish": {
+      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/publish"
     },
     "validate": {
+      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/validate"
     },
     "stop": {
+      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/stop"
     }
   },
