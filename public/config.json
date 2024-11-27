@@ -24,6 +24,9 @@
         },
         {
           "bannerPhoto": "{{Interaction.bannerPhoto}}"
+        },
+        {
+          "telegramID": "{{Contact.Attribute.TelegramId}}"
         }
       ],
       "outArguments": [],

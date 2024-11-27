@@ -71,13 +71,13 @@ app.all("/execute", async function (req, res) {
         console.log('@ Debug: contactKey Execute -----------------------------------------------');
         console.log(contactKey);
 
-        const chat_id = getArgument('telegramId', inArguments);
+        const chat_id = getArgument('telegramID', inArguments);
         const emailAddress = getArgument('emailAddress', inArguments);
         const customMessage = getArgument('customMessage', inArguments);
         const bannerPhoto = getArgument('bannerPhoto', inArguments);
 
         const response = await axios.get(
-          `${url}sendMessage?chat_id=${chat_id}&text=${customMessages}`
+          `${url}sendMessage?chat_id=${chat_id}&text=${customMessage}`
         );
 
         res.send(response.data);
