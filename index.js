@@ -47,7 +47,8 @@ const clean = (s) => {
   let r = '';
   if (s) {
     // r = s.replace(/[\u00A0-\u9999<>\&]/g, function(i) { return '&#'+i.charCodeAt(0)+';';});
-    r = r.replace(/<\s*\/?br\s*[\/]?>/gi, "\n");
+    // r = r.replace(/<\s*\/?br\s*[\/]?>/gi, "\n");
+    r = r.split('<br/>').join("\n");
   }
   return r
 }
