@@ -20,13 +20,7 @@
           "customMessage": "{{Interaction.customMessage}}"
         },
         {
-          "bannerPhoto": "{{Interaction.bannerPhoto}}"
-        },
-        {
           "emailAddress": "{{InteractionDefaults.Email}}"
-        },
-        {
-          "telegramID": "{{InteractionDefaults.TelegramId}}"
         }
       ],
       "outArguments": [],
