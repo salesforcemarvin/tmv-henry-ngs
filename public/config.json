@@ -26,7 +26,7 @@
           "emailAddress": "{{InteractionDefaults.Email}}"
         },
         {
-          "telegramID": "{{InteractionDefaults.telegramId}}"
+          "telegramID": "{{InteractionDefaults.TelegramId}}"
         }
       ],
       "outArguments": [],
@@ -40,19 +40,15 @@
   },
   "configurationArguments": {
     "save": {
-      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/save"
     },
     "publish": {
-      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/publish"
     },
     "validate": {
-      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/validate"
     },
     "stop": {
-      "verb": "POST",
       "url": "https://tmv-g2tu.onrender.com/stop"
     }
   },
