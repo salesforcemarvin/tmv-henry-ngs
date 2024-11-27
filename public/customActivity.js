@@ -227,7 +227,7 @@ define(["postmonger"], function (Postmonger) {
     // Journey Builder sends an initial payload with defaults
     // set by this activity's config.json file.  Any property
     // may be overridden as desired.
-    payload.name = value; //text message to send to telegram
+    payload.name = "Telegram Message Ready!"; //text message to send to telegram
 
     payload["arguments"].execute.inArguments = [{ message: value }];
     //payload["arguments"].execute.inArguments.push({"text": value})
