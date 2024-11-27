@@ -89,12 +89,14 @@ app.all("/execute", async function (req, res) {
           messenger = {
             chat_id,
             photo,
-            caption: text 
+            caption: text,
+            parse_mode: "HTML" 
           };
         } else {
           messenger = {
             chat_id,
-            text 
+            text,
+            parse_mode: "HTML"
           };
         }
 
