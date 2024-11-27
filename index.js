@@ -73,20 +73,32 @@ app.all("/execute", async function (req, res) {
 
         let chat_id = getArgument('telegramID', inArguments);
         let emailAddress = getArgument('emailAddress', inArguments);
-        let customMessage = getArgument('customMessage', inArguments);
-        let bannerPhoto = getArgument('bannerPhoto', inArguments);
+        let text = getArgument('customMessage', inArguments);
+        let photo = getArgument('bannerPhoto', inArguments);
         let activeCode = getArgument('activationCode', inArguments);
         let registerDate = getArgument('registeredDate', inArguments);
 
         chat_id = chat_id || contact;
 
-        let endpoint = `${url}sendMessage?chat_id=${chat_id}&text=${customMessage}`;
+        let messenger = {};
+
+        let endpoint = `${url}sendMessage`;
 
         if (bannerPhoto) {
-          endpoint = `${url}sendPhoto?chat_id=${chat_id}&photo=${bannerPhoto}&caption=${customMessage}`;
+          endpoint = `${url}sendPhoto`;
+          messenger = {
+            chat_id,
+            photo,
+            caption: text 
+          };
+        } else {
+          messenger = {
+            chat_id,
+            text 
+          };
         }
 
-        const response = await axios.get(endpoint);
+        const response = await axios.post(endpoint, messenger);
 
         res.send(response.data);
         res.status(200).send({ status: "success" });
