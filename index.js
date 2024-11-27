@@ -85,7 +85,7 @@ app.all("/execute", async function (req, res) {
 
         let chat_id = getArgument('telegramID', inArguments);
         let emailAddress = getArgument('emailAddress', inArguments);
-        let text = clean(getArgument('customMessage', inArguments))yủty;
+        let text = clean(getArgument('customMessage', inArguments));
         let photo = getArgument('bannerPhoto', inArguments);
         let activeCode = getArgument('activationCode', inArguments);
         let registerDate = getArgument('registeredDate', inArguments);
