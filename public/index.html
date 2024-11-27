@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Telegram Journey Builder Activity</title>
 
@@ -8,75 +9,78 @@
     <script type="text/javascript" src="js/require.js"></script>
     <link type="text/css" href="css/style.css" rel="stylesheet">
     <script type="text/javascript">
-      (function () {
-        var config = {
-          baseUrl: "",
-        };
-        var dependencies = ["customActivity"];
-        require(config, dependencies);
-      })();
+        (function() {
+            var config = {
+                baseUrl: "",
+            };
+            var dependencies = ["customActivity"];
+            require(config, dependencies);
+        })();
     </script>
 
     <!--Styles-->
     <style type="text/css">
-      body {
-        padding: 20px;
-        margin: 0;
-      }
-      .step {
-        display: none;
-      }
-      #step1 {
-        display: block;
-      }
+        body {
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .step {
+            display: none;
+        }
+        
+        #step1 {
+            display: block;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="step1" class="step">
-      <h3>Message Content</h3>
-      <div class="input-box">
-        <textarea id="configuration"></textarea>
-        <div id="prv">
+        <h3>Message Content</h3>
+        <div class="input-box">
+            <div id="prv" class="hidden">
+            </div>
+            <textarea id="configuration"></textarea>
         </div>
-      </div>
     </div>
     <div id="step2" class="step">
-      <h3>Banner Photo</h3>
-      <div class="input-box">
-        <input type="text" value="" id="banner" />
-        <img id="image" style="width:98%" src="" />
-      </div>
+        <h3>Banner Photo</h3>
+        <div class="input-box">
+            <input type="text" value="" id="banner" />
+            <img id="image" style="width:98%" src="" />
+        </div>
     </div>
     <div id="step3" class="step">
-      <h3>Preview</h3>
-      <div id="preview-frame" class="hidden">
-        <section class="chat__body">
-            <div class="messages">
-                <div class="chat__loader">
-                    <div class="spinner"></div>
-                </div>
-                <div id="img-frm" class="message">
-                    <div class="message__image">
-                        <img id="prv-img" class="message__image__content" src="" />
+        <h3>Preview</h3>
+        <div id="preview-frame" class="hidden">
+            <section class="chat__body">
+                <div class="messages">
+                    <div class="chat__loader">
+                        <div class="spinner"></div>
                     </div>
-                </div>
-                <div id="msg-frm" class="message">
-                    <div class="message__text">
-                        <div id="txt-cnt" class="message__text__content">
-                            <div class="message__text"></div>
-                            <div class="message__time"></div>
+                    <div id="img-frm" class="message">
+                        <div class="message__image">
+                            <img id="prv-img" class="message__image__content" src="" />
+                        </div>
+                    </div>
+                    <div id="msg-frm" class="message">
+                        <div class="message__text">
+                            <div id="txt-cnt" class="message__text__content">
+                                <div class="message__text"></div>
+                                <div class="message__time"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
-  </div>
-  <div id="step4" class="step">
-    <div class="btn-bar">
-      <input type="button" id="submit-this" value="Test Send Message"></input>
+    <div id="step4" class="step">
+        <div class="btn-bar">
+            <input type="button" id="submit-this" value="Test Send Message"></input>
+        </div>
     </div>
-  </div>
-  </body>
+</body>
+
 </html>
