@@ -43,15 +43,6 @@ const getArgument = (key, arg) => {
   return ret;
 }
 
-const clean = (s) => {
-  let r = '';
-  if (s) {
-    // r = s.replace(/[\u00A0-\u9999<>\&]/g, function(i) { return '&#'+i.charCodeAt(0)+';';});
-    // r = r.replace(/<\s*\/?br\s*[\/]?>/gi, "\n");
-    r = r.split('<br/>').join("\n");
-  }
-  return r
-}
 
 app.all("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
