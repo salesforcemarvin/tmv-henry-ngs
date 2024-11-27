@@ -167,7 +167,7 @@ define(["postmonger"], function (Postmonger) {
         } else {
           connection.trigger("updateButton", {
             button: "next",
-            text: "done",
+            text: "save",
             visible: true,
           });
         }
@@ -180,6 +180,7 @@ define(["postmonger"], function (Postmonger) {
 
   function save() {
     var value = getMessage();
+    var photo = getBanner();
 
     // 'payload' is initialized on 'initActivity' above.
     // Journey Builder sends an initial payload with defaults
@@ -192,13 +193,16 @@ define(["postmonger"], function (Postmonger) {
 
     payload["arguments"].execute.inArguments = [
       {
-        'chat_id': "@VCB_poc"
+        'telegramID': '{{InteractionDefaults.telegramId}}'
       },
       {
         'emailAddress': '{{InteractionDefaults.Email}}'
       },
       {
         'customMessage': value
+      },
+      {
+        'bannerPhoto': photo
       }
     ];
 
@@ -220,14 +224,18 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("updateActivity", payload);
 
     console.log(inArguments.length);
-    console.log(inArguments[0]['chat_id']);
+    console.log(inArguments[0]['telegramID']);
     console.log(inArguments[1]['emailAddress']);
     console.log(inArguments[2]['customMessage']);
-    //console.log(value);
+    console.log(inArguments[3]['bannerPhoto']);
   }
 
   function getMessage() {
     return document.getElementById("configuration").value;
+  }
+
+  function getBanner() {
+    return document.getElementById("banner").value;
   }
 
   $("#submit-this").click(function (e) {

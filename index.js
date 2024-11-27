@@ -53,28 +53,19 @@ app.post("/execute", async function (req, res) {
       //let contactKey = req.body.keyValue
       let inArguments = req.body.inArguments
 
-      // console.log(inArguments.length);
-      // console.log(inArguments[0]['chat_id']);
-      // console.log(inArguments[1]['emailAddress']);
-      // console.log(inArguments[2]['customMessage']);
-
-      const chat_id = inArguments[0]['chat_id'];
-      const emailAddress = inArguments[1]['emailAddress'];
-      const customMessage = inArguments[2]['customMessage'];
-
       console.log('@ Debug: Execute -----------------------------------------------');
       console.log(inArguments);
+
+      const chat_id = inArguments[0]['telegramID'];
+      const emailAddress = inArguments[1]['emailAddress'];
+      const customMessage = inArguments[2]['customMessage'];
+      const photoBanner = inArguments[2]['photoBanner'];
 
       const response = await axios.get(
         `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
       );
 
-      res.send(response.data);
-    // } catch (error) {
-    //   console.error("Error triggering API call:", error);
-    //   res.status(500).send("Error triggering API call");
-    // }
-
+    res.send(response.data);
     res.status(200).send({ status: "success" });
   } catch (error) {
     console.error("Error executing custom activity:", error);
@@ -87,24 +78,3 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-//for testing
-// const data = {
-//   execute: {
-//     inArguments: [
-//       {
-//         contactKey: "LACUNA01",
-//         emailAddress: "MMMM@gmail.com",
-//       },
-//     ]
-//   },
-// };
-
-// const fs = require("fs");
-// fs.readFile(".public/config.json", "utf8", (err, data) => {
-//   if (err) {
-//     console.error("Error reading the file:", err);
-//     return;
-//   }
-//   const config = JSON.parse(data);
-//   console.log(config);
-// });
