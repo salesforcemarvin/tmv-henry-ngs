@@ -2,7 +2,7 @@
   "workflowApiVersion": "1.1",
   "lang": {
     "en-US": {
-      "name": "Telegram New",
+      "name": "Telegram Origin",
       "description": "Salesforce Marketing Cloud - Journey Builder Telegram custom activity application."
     }
   },
@@ -21,6 +21,9 @@
         },
         {
           "emailAddress": "{{InteractionDefaults.Email}}"
+        },
+        {
+          "telegramId": "{{InteractionDefaults.TelegramId}}"
         }
       ],
       "outArguments": [],

@@ -31,6 +31,18 @@ app.all("/stop", async function (req, res) {
   res.send("Done");
 });
 
+const getArgument = (key, arg) => {
+  let ret = null;
+  if (Array.isArray(arg) && arg.length > 0) {
+    arg.forEach((item) => {
+      if (typeof item === 'object' && Object.hasOwn(item, key)) {
+        ret = item[key];
+      }
+    });
+  }
+  return ret;
+}
+
 app.all("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
@@ -56,13 +68,13 @@ app.all("/execute", async function (req, res) {
         console.log('@ Debug: Execute -----------------------------------------------');
         console.log(inArguments);
 
-        const chat_id = inArguments[0]['telegramID'];
-        const emailAddress = inArguments[1]['emailAddress'];
-        const customMessage = inArguments[2]['customMessage'];
-        const photoBanner = inArguments[2]['photoBanner'];
+        const chat_id = getArgument('telegramId', inArguments);
+        const emailAddress = getArgument('emailAddress', inArguments);
+        const customMessage = getArgument('customMessage', inArguments);
+        const photoBanner = getArgument('photoBanner', inArguments);
 
         const response = await axios.get(
-          `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
+          `${url}sendMessage?chat_id=${chat_id}&text=${customMessages}`
         );
 
         res.send(response.data);
