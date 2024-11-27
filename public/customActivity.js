@@ -35,6 +35,14 @@ define(["postmonger"], function (Postmonger) {
     $("#message").html(message);
   }
 
+  function cvt(s) {
+    let r = '';
+    if (s) {
+      r = s.split("\n").join('<br/>');
+    }
+    return r;
+  }
+
   function initialize(data) {
     // document.getElementById("configuration").value = JSON.stringify(
     //   data,
@@ -87,8 +95,8 @@ define(["postmonger"], function (Postmonger) {
         let current_time = now.getHours() + ":" + now.getMinutes();
         $('#txt-cnt .message__time').html(current_time);
         const url = $("#banner").val();
-        $("#txt-cnt .message__text").html(msg);
-        $("#prv").html(msg);
+        $("#txt-cnt .message__text").html(cvt(msg));
+        $("#prv").html(cvt(msg));
         if (url != '') {
             $("#image").attr('src', url);
             $("#prv-img").attr('src', url);
