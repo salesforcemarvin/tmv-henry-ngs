@@ -31,7 +31,7 @@ app.post("/stop", async function (req, res) {
   res.send("Done");
 });
 
-app.post("/execute", async function (req, res) {
+app.all("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
   console.log("RUNNING CUSTOM ACTIVITY HERE");
@@ -74,6 +74,8 @@ app.post("/execute", async function (req, res) {
     });
   }
 });
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

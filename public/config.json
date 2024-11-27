@@ -2,7 +2,7 @@
   "workflowApiVersion": "1.1",
   "lang": {
     "en-US": {
-      "name": "Telegram v3",
+      "name": "VCB Telegram",
       "description": "REST activity using workflow API v1.0 format."
     }
   },
@@ -28,7 +28,6 @@
           "telegramID": "{{InteractionDefaults.telegramId}}"
         }
       ],
-      "verb": "POST",
       "outArguments": [],
 			"timeout": 100000,
 			"retryCount": 1,
