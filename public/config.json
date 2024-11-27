@@ -2,12 +2,13 @@
   "workflowApiVersion": "1.1",
   "lang": {
     "en-US": {
-      "name": "VCB Telegram",
-      "description": "REST activity using workflow API v1.0 format."
+      "name": "Telegram",
+      "description": "Salesforce Marketing Cloud - Journey Builder Telegram custom activity application."
     }
   },
   "metaData": {
-    "icon": "images/telegram-icon-6896828_960_720.png",
+    "icon": "images/telegram-icon.png",
+    "iconSmall": "images/telegram-mini.png",
     "category": "message",
     "isConfigured": true
   },
