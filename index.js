@@ -71,16 +71,22 @@ app.all("/execute", async function (req, res) {
         console.log('@ Debug: Body Execute -----------------------------------------------');
         console.log(req.body);
 
-        const chat_id = getArgument('telegramID', inArguments);
-        const emailAddress = getArgument('emailAddress', inArguments);
-        const customMessage = getArgument('customMessage', inArguments);
-        const bannerPhoto = getArgument('bannerPhoto', inArguments);
-        const activeCode = getArgument('activationCode', inArguments);
-        const registerDate = getArgument('registeredDate', inArguments);
+        let chat_id = getArgument('telegramID', inArguments);
+        let emailAddress = getArgument('emailAddress', inArguments);
+        let customMessage = getArgument('customMessage', inArguments);
+        let bannerPhoto = getArgument('bannerPhoto', inArguments);
+        let activeCode = getArgument('activationCode', inArguments);
+        let registerDate = getArgument('registeredDate', inArguments);
 
-        const response = await axios.get(
-          `${url}sendMessage?chat_id=${chat_id}&text=${customMessage}`
-        );
+        chat_id = chat_id || contact;
+
+        let endpoint = `${url}sendMessage?chat_id=${chat_id}&text=${customMessage}`;
+
+        if (bannerPhoto) {
+          endpoint = `${url}sendPhoto?chat_id=${chat_id}&photo=${bannerPhoto}&caption=${customMessage}`;
+        }
+
+        const response = await axios.get(endpoint);
 
         res.send(response.data);
         res.status(200).send({ status: "success" });

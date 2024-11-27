@@ -236,7 +236,7 @@ define(["postmonger"], function (Postmonger) {
 
     payload["arguments"].execute.inArguments = [
       {
-        'telegramID': '{{Interaction.TelegramId}}'
+        'telegramID': '{{Contact.Attribute.TelegramId}}'
       },
       {
         'emailAddress': '{{InteractionDefaults.Email}}'
