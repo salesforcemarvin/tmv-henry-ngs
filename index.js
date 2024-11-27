@@ -7,25 +7,25 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 const config = require("./public/config.json");
-app.post("/save", function (req, res)  {
+app.all("/save", function (req, res)  {
   // Handle save request
   console.log("SAVE REQUEST");
   console.log(req.body);
   res.sendStatus(200);
 });
-app.post("/publish", function (req, res)  {
+app.all("/publish", function (req, res)  {
   // Handle publish request
   console.log("PUBLISH REQUEST");
   console.log(req.body);
   res.sendStatus(200);
 });
-app.post("/validate", function (req, res) {
+app.all("/validate", function (req, res) {
   // Handle validate request
   console.log("VALIDATE REQUEST");
   console.log(req.body);
   res.sendStatus(200);
 });
-app.post("/stop", async function (req, res) {
+app.all("/stop", async function (req, res) {
   console.log("STOPPING JOURNEY");
   console.log(req.body);
   res.send("Done");
@@ -48,25 +48,31 @@ app.all("/execute", async function (req, res) {
 
   // console.log(config);
   try {
-    // try {
-      
-      //let contactKey = req.body.keyValue
-      let inArguments = req.body.inArguments
+      try {
+        
+        //let contactKey = req.body.keyValue
+        let inArguments = req.body.inArguments
 
-      console.log('@ Debug: Execute -----------------------------------------------');
-      console.log(inArguments);
+        console.log('@ Debug: Execute -----------------------------------------------');
+        console.log(inArguments);
 
-      const chat_id = inArguments[0]['telegramID'];
-      const emailAddress = inArguments[1]['emailAddress'];
-      const customMessage = inArguments[2]['customMessage'];
-      const photoBanner = inArguments[2]['photoBanner'];
+        const chat_id = inArguments[0]['telegramID'];
+        const emailAddress = inArguments[1]['emailAddress'];
+        const customMessage = inArguments[2]['customMessage'];
+        const photoBanner = inArguments[2]['photoBanner'];
 
-      const response = await axios.get(
-        `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
-      );
+        const response = await axios.get(
+          `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
+        );
 
-    res.send(response.data);
-    res.status(200).send({ status: "success" });
+        res.send(response.data);
+        res.status(200).send({ status: "success" });
+      } catch (error) {
+        console.error("Error executing custom activity:", error);
+        res.status(500).send({
+          error: "An error occurred while executing the custom activity. 555",
+        });
+      }
   } catch (error) {
     console.error("Error executing custom activity:", error);
     res.status(500).send({
