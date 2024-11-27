@@ -35,18 +35,21 @@ app.post("/execute", async function (req, res) {
   console.log("RUNNING CUSTOM ACTIVITY HERE");
   console.log("-------REQUEST------");
   
-  let channel = "@vcbsalesforce";
+  let channel = "@VCB_poc";
   let contact = "632717898";
-  const token = "7622096585:AAHe3Tdc4zsc9-9hKvY0C5briAUo4QSIUWs";
+  const token = "8091993565:AAE_BFhW4GU3e1702RlwdUTycr_DL1gOhBo";
   const endpoint = "https://api.telegram.org/bot";
-  const url = `${endpoint}${token}/`;
+  const url = `${endpoint}${token}/sendMessage`;
+
+  console.log('@ Debug: Execute -----------------------------------------------');
+  console.log(req.body);
 
   // console.log(config);
   try {
     try {
-      // const response = await axios.post("https://api.example.com/endpoint", {
-      //   data: req.body,
-      // });
+      const response = await axios.post(url, {
+        data: req.body,
+      });
 
       //let contactKey = req.body.keyValue
       let inArguments = req.body.inArguments
