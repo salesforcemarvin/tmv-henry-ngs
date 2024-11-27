@@ -2,7 +2,7 @@
   "workflowApiVersion": "1.1",
   "lang": {
     "en-US": {
-      "name": "Telegram 0",
+      "name": "Telegram OK",
       "description": "Salesforce Marketing Cloud - Journey Builder Telegram custom activity application."
     }
   },
@@ -34,22 +34,22 @@
 			"retryCount": 1,
 			"retryDelay": 10000,
 			"concurrentRequests" : 5,
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/execute"
+      "url": "https://tmv-g2tu.onrender.com/execute"
 
     }
   },
   "configurationArguments": {
     "save": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/save"
+      "url": "https://tmv-g2tu.onrender.com/save"
     },
     "publish": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/publish"
+      "url": "https://tmv-g2tu.onrender.com/publish"
     },
     "validate": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/validate"
+      "url": "https://tmv-g2tu.onrender.com/validate"
     },
     "stop": {
-      "url": "https://telegram-marvin-c77e792ed287.herokuapp.com/stop"
+      "url": "https://tmv-g2tu.onrender.com/stop"
     }
   },
   "wizardSteps": [
