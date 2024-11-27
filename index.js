@@ -68,8 +68,8 @@ app.all("/execute", async function (req, res) {
         console.log('@ Debug: inArguments Execute -----------------------------------------------');
         console.log(inArguments);
 
-        console.log('@ Debug: Body Execute -----------------------------------------------');
-        console.log(req.body);
+        // console.log('@ Debug: Body Execute -----------------------------------------------');
+        // console.log(req.body);
 
         let chat_id = getArgument('telegramID', inArguments);
         let emailAddress = getArgument('emailAddress', inArguments);
