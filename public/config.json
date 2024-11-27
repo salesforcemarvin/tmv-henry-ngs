@@ -2,7 +2,7 @@
   "workflowApiVersion": "1.1",
   "lang": {
     "en-US": {
-      "name": "Telegram OK",
+      "name": "Telegram OKccc",
       "description": "Salesforce Marketing Cloud - Journey Builder Telegram custom activity application."
     }
   },
@@ -20,13 +20,7 @@
           "customMessage": "{{Interaction.customMessage}}"
         },
         {
-          "bannerPhoto": "{{Interaction.bannerPhoto}}"
-        },
-        {
           "emailAddress": "{{InteractionDefaults.Email}}"
-        },
-        {
-          "telegramID": "{{InteractionDefaults.TelegramId}}"
         }
       ],
       "outArguments": [],
