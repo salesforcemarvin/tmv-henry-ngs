@@ -84,7 +84,7 @@ app.all("/execute", async function (req, res) {
 
         let endpoint = `${url}sendMessage`;
 
-        if (bannerPhoto) {
+        if (photo) {
           endpoint = `${url}sendPhoto`;
           messenger = {
             chat_id,
