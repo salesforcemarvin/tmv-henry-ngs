@@ -33,6 +33,33 @@ pre#json-renderer {
     height: 300px;
 }
 
+#configuration {
+    box-shadow: 1px 2px 3px #666;
+    border: 1px solid #999;
+    border-radius: 3px;
+    color: #363636;
+    padding: 8px 10px;
+    width: 98%;
+}
+#banner {
+    width: 98%;
+    border: 1px solid #fff;
+    padding: 8px;
+    margin: 10px 0 20px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px #333;
+    color: #363636;
+    font-family: 'calibri';
+    font-style: italic;
+}
+
+#image {
+    width: 98%;
+    border: 1px solid #999;
+    border-radius: 3px;
+    box-shadow: 1px 2px 3px #333;
+}
+
 #controller {
     position: relative;
     top: 1%;

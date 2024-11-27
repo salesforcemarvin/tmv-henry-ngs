@@ -88,6 +88,7 @@ define(["postmonger"], function (Postmonger) {
         $('#txt-cnt .message__time').html(current_time);
         const url = $("#banner").val();
         $("#txt-cnt .message__text").html(msg);
+        $("#prv").html(msg);
         if (url != '') {
             $("#image").attr('src', url);
             $("#prv-img").attr('src', url);
@@ -106,6 +107,7 @@ define(["postmonger"], function (Postmonger) {
               $("#preview-frame").addClass('hidden');
           });
         }
+        $("#prv").html('');
         $("#txt-cnt .message__text").html('');
         $("#prv-img").attr('src', '');
         $("#image").attr('src', '');
