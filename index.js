@@ -112,6 +112,9 @@ app.all("/execute", async function (req, res) {
           };
         }
 
+        console.log('@ Debug: Check messenger will be sent --------------------------------------------');
+        console.log(messenger);
+
         const response = await axios.post(endpoint, messenger);
 
         res.send(response.data);
