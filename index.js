@@ -51,6 +51,9 @@ app.post("/execute", async function (req, res) {
       //let contactKey = req.body.keyValue
       let inArguments = req.body.inArguments
 
+      console.log('@ Debug: Execute -----------------------------------------------');
+      console.log(inArguments);
+
       // console.log(inArguments.length);
       // console.log(inArguments[0]['chat_id']);
       // console.log(inArguments[1]['emailAddress']);
@@ -60,9 +63,9 @@ app.post("/execute", async function (req, res) {
       const emailAddress = inArguments[1]['emailAddress'];
       const customMessage = inArguments[2]['customMessage'];
 
-      const response = await axios.get(
-        `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
-      );
+      // const response = await axios.get(
+      //   `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
+      // );
 
       res.send(response.data);
     } catch (error) {
