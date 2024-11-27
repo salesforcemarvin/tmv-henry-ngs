@@ -94,7 +94,7 @@ app.all("/execute", async function (req, res) {
 
         let endpoint = `${url}/sendMessage`;
 
-        text = text
+        text = text.replace("{{customer_name}}", "Phùng Thanh Minh").replace("{{registered_date}}","25/10/2024").replace("{{registered_code}}","9652")
 
         if (photo) {
           endpoint = `${url}/sendPhoto`;
