@@ -75,6 +75,8 @@ app.all("/execute", async function (req, res) {
         const emailAddress = getArgument('emailAddress', inArguments);
         const customMessage = getArgument('customMessage', inArguments);
         const bannerPhoto = getArgument('bannerPhoto', inArguments);
+        const activeCode = getArgument('activationCode', inArguments);
+        const registerDate = getArgument('registeredDate', inArguments);
 
         const response = await axios.get(
           `${url}sendMessage?chat_id=${chat_id}&text=${customMessage}`

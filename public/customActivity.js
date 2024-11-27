@@ -236,7 +236,7 @@ define(["postmonger"], function (Postmonger) {
 
     payload["arguments"].execute.inArguments = [
       {
-        'telegramID': '{{Contact.Attribute.TelegramTest.TelegramId}}'
+        'telegramID': '{{Interaction.TelegramId}}'
       },
       {
         'emailAddress': '{{InteractionDefaults.Email}}'
@@ -247,6 +247,12 @@ define(["postmonger"], function (Postmonger) {
       ,
       {
         'bannerPhoto': photo
+      },
+      {
+        "registeredDate": "{{Interaction.registeredDate}}"
+      },
+      {
+        "activationCode": "{{Interaction.Code}}"
       }
     ];
 

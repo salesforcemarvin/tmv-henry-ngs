@@ -26,7 +26,13 @@
           "bannerPhoto": "{{Interaction.bannerPhoto}}"
         },
         {
-          "telegramID": "{{Contact.Attribute.TelegramTest.TelegramId}}"
+          "telegramID": "{{Interaction.TelegramId}}"
+        },
+        {
+          "registeredDate": "{{Interaction.RegisteredDate}}"
+        },
+        {
+          "activationCode": "{{Interaction.Code}}"
         }
       ],
       "outArguments": [],
