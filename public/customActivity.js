@@ -235,19 +235,19 @@ define(["postmonger"], function (Postmonger) {
     //payload["arguments"].execute.inArguments.push({"text": value})
 
     payload["arguments"].execute.inArguments = [
-      // {
-      //   'telegramID': '{{InteractionDefaults.TelegramId}}'
-      // },
+      {
+        'telegramID': '{{InteractionDefaults.TelegramId}}'
+      },
       {
         'emailAddress': '{{InteractionDefaults.Email}}'
       },
       {
         'customMessage': value
       }
-      // ,
-      // {
-      //   'bannerPhoto': photo
-      // }
+      ,
+      {
+        'bannerPhoto': photo
+      }
     ];
 
     //payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
@@ -264,10 +264,11 @@ define(["postmonger"], function (Postmonger) {
     console.log("saving\n", value);
 
     console.log("$ Test is OK -----------------------------------------");
-    console.log(payload)
+    console.log(inArguments)
+
     connection.trigger("updateActivity", payload);
 
-    console.log(inArguments.length);
+    // console.log(inArguments.length);
     // console.log(inArguments[0]['telegramID']);
     // console.log(inArguments[1]['emailAddress']);
     // console.log(inArguments[2]['customMessage']);
@@ -283,7 +284,6 @@ define(["postmonger"], function (Postmonger) {
   }
 
   $("#submit-this").click(function (e) {
-    
     save();
   });
 });
