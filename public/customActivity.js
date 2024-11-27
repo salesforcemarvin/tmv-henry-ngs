@@ -133,7 +133,7 @@ define(["postmonger"], function(Postmonger) {
                     $("#preview-frame").addClass('hidden');
                 })
             }
-            if ($("#prv").is(":visible')) {")) {
+            if ($("#prv").is(":visible")) {
                 $("#prv").slideUp('fast', () => {
                     $("#prv").html('');
                     $("#prv").addClass('hidden');
