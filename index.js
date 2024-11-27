@@ -62,16 +62,19 @@ app.all("/execute", async function (req, res) {
   try {
       try {
         
-        //let contactKey = req.body.keyValue
+        let contactKey = req.body.keyValue
         let inArguments = req.body.inArguments
 
-        console.log('@ Debug: Execute -----------------------------------------------');
+        console.log('@ Debug: inArguments Execute -----------------------------------------------');
         console.log(inArguments);
+
+        console.log('@ Debug: contactKey Execute -----------------------------------------------');
+        console.log(contactKey);
 
         const chat_id = getArgument('telegramId', inArguments);
         const emailAddress = getArgument('emailAddress', inArguments);
         const customMessage = getArgument('customMessage', inArguments);
-        const photoBanner = getArgument('photoBanner', inArguments);
+        const bannerPhoto = getArgument('bannerPhoto', inArguments);
 
         const response = await axios.get(
           `${url}sendMessage?chat_id=${chat_id}&text=${customMessages}`

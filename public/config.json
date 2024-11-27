@@ -23,7 +23,7 @@
           "emailAddress": "{{InteractionDefaults.Email}}"
         },
         {
-          "telegramId": "{{InteractionDefaults.TelegramId}}"
+          "bannerPhoto": "{{Interaction.bannerPhoto}}"
         }
       ],
       "outArguments": [],
