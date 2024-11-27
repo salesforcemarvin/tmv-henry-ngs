@@ -192,7 +192,7 @@ define(["postmonger"], function (Postmonger) {
 
     payload["arguments"].execute.inArguments = [
       {
-        'chat_id': "@vcbsalesforce"
+        'chat_id': "@VCB_poc"
       },
       {
         'emailAddress': '{{InteractionDefaults.Email}}'
