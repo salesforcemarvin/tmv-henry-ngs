@@ -15,6 +15,8 @@ app.post("/save", function (req, res)  {
 });
 app.post("/publish", function (req, res)  {
   // Handle publish request
+  console.log("PUBLISH REQUEST");
+  console.log(req.body);
   res.sendStatus(200);
 });
 app.post("/validate", function (req, res) {
