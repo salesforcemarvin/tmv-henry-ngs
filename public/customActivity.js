@@ -101,6 +101,11 @@ define(["postmonger"], function(Postmonger) {
                     $("#prv").removeClass('hidden');
                 })
             }
+            if ($("preview-frame").is(":hidden")) {
+                $("#preview-frame").slideDown('slow', () => {
+                    $("#preview-frame").removeClass('hidden');
+                })
+            }
             if (url != '') {
                 $("#image").attr('src', url);
                 $("#prv-img").attr('src', url);
@@ -118,6 +123,11 @@ define(["postmonger"], function(Postmonger) {
                 $("#image").slideUp('fast', () => {
                     $("#image").addClass('hidden');
                 });
+            }
+            if ($("preview-frame").is(":visible")) {
+                $("#preview-frame").slideUp('fast', () => {
+                    $("#preview-frame").addClass('hidden');
+                })
             }
             if ($("#prv").is(":visible')) {")) {
                 $("#prv").slideUp('fast', () => {
