@@ -100,6 +100,10 @@ define(["postmonger"], function(Postmonger) {
                 $("#prv").slideDown('slow', () => {
                     $("#prv").removeClass('hidden');
                 })
+                $("#configuration").animate({
+                    opacity: 0.6,
+                    height: 100
+                }, 500, () => {})
             }
             if ($("preview-frame").is(":hidden")) {
                 $("#preview-frame").slideDown('slow', () => {
@@ -134,6 +138,10 @@ define(["postmonger"], function(Postmonger) {
                     $("#prv").html('');
                     $("#prv").addClass('hidden');
                 })
+                $("#configuration").animate({
+                    opacity: 1,
+                    height: 200
+                }, 500, () => {})
             } else {
                 $("#prv").html('');
             }
