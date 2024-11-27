@@ -103,9 +103,9 @@ app.all("/execute", async function (req, res) {
         res.send(response.data);
         res.status(200).send({ status: "success" });
       } catch (error) {
-        console.error("Error executing custom activity:", error);
+        console.error("Error calling Telegram API:", error);
         res.status(500).send({
-          error: "An error occurred while executing the custom activity. 555",
+          error: "An error occurred while Sending Message to Telegram. 555",
         });
       }
   } catch (error) {
