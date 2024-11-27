@@ -229,7 +229,8 @@ define(["postmonger"], function (Postmonger) {
   }
 
   $("#submit-this").click(function (e) {
-    console.log("test this");
+    console.log("$ Test is OK -----------------------------------------");
+    console.log(payload)
     save();
   });
 });

@@ -41,23 +41,17 @@ app.post("/execute", async function (req, res) {
   let contact = "632717898";
   const token = "8091993565:AAE_BFhW4GU3e1702RlwdUTycr_DL1gOhBo";
   const endpoint = "https://api.telegram.org/bot";
-  const url = `${endpoint}${token}/sendMessage`;
+  const url = `${endpoint}${token}`;
 
   console.log('@ Debug: Execute -----------------------------------------------');
   console.log(req.body);
 
   // console.log(config);
   try {
-    try {
-      const response = await axios.post(url, {
-        data: req.body,
-      });
-
+    // try {
+      
       //let contactKey = req.body.keyValue
       let inArguments = req.body.inArguments
-
-      console.log('@ Debug: Execute -----------------------------------------------');
-      console.log(inArguments);
 
       // console.log(inArguments.length);
       // console.log(inArguments[0]['chat_id']);
@@ -68,15 +62,18 @@ app.post("/execute", async function (req, res) {
       const emailAddress = inArguments[1]['emailAddress'];
       const customMessage = inArguments[2]['customMessage'];
 
-      // const response = await axios.get(
-      //   `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
-      // );
+      console.log('@ Debug: Execute -----------------------------------------------');
+      console.log(inArguments);
+
+      const response = await axios.get(
+        `${url}sendMessage?chat_id=${chat_id}&text=${emailAddress}`
+      );
 
       res.send(response.data);
-    } catch (error) {
-      console.error("Error triggering API call:", error);
-      res.status(500).send("Error triggering API call");
-    }
+    // } catch (error) {
+    //   console.error("Error triggering API call:", error);
+    //   res.status(500).send("Error triggering API call");
+    // }
 
     res.status(200).send({ status: "success" });
   } catch (error) {
