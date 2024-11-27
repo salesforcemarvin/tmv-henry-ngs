@@ -223,7 +223,7 @@ define(["postmonger"], function (Postmonger) {
 
   function save() {
     var value = getMessage();
-    // var photo = getBanner();
+    var photo = getBanner();
 
     // 'payload' is initialized on 'initActivity' above.
     // Journey Builder sends an initial payload with defaults
