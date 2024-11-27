@@ -30,7 +30,6 @@ pre#json-renderer {
     border-radius: 3px;
     color: #363636;
     padding: 8px 10px;
-    width: 98%;
     box-shadow: rgb(123, 123, 123) 1px 1px 3px 0px inset, rgba(255, 255, 255, 0.5) -1px -1px 3px 1px inset
 }
 
