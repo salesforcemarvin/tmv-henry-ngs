@@ -223,7 +223,7 @@ define(["postmonger"], function (Postmonger) {
 
   function save() {
     var value = getMessage();
-    var photo = getBanner();
+    // var photo = getBanner();
 
     // 'payload' is initialized on 'initActivity' above.
     // Journey Builder sends an initial payload with defaults
@@ -268,10 +268,10 @@ define(["postmonger"], function (Postmonger) {
     connection.trigger("updateActivity", payload);
 
     console.log(inArguments.length);
-    console.log(inArguments[0]['telegramID']);
-    console.log(inArguments[1]['emailAddress']);
-    console.log(inArguments[2]['customMessage']);
-    console.log(inArguments[3]['bannerPhoto']);
+    // console.log(inArguments[0]['telegramID']);
+    // console.log(inArguments[1]['emailAddress']);
+    // console.log(inArguments[2]['customMessage']);
+    // console.log(inArguments[3]['bannerPhoto']);
   }
 
   function getMessage() {
