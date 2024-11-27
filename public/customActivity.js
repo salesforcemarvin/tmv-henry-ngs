@@ -6,10 +6,10 @@ define(["postmonger"], function (Postmonger) {
   var lastStepEnabled = false;
   var steps = [
     // initialize to the same value as what's set in config.json for consistency
-    { label: "Step 1", key: "step1" },
-    { label: "Step 2", key: "step2" },
-    { label: "Step 3", key: "step3" },
-    { label: "Step 4", key: "step4", active: false },
+    { "label": "Message Content", "key": "step1" },
+    { "label": "Insert Banner", "key": "step2" },
+    { "label": "Preview & Send", "key": "step3" },
+    { label: "Completed!", key: "step4", active: false },
   ];
   var currentStep = steps[0].key;
 
@@ -79,6 +79,47 @@ define(["postmonger"], function (Postmonger) {
       //showStep(null, 3);
     }
   }
+
+  const showContent = () => {
+    const msg = $("#configuration").val();
+    if (msg != '') {
+        const now = new Date(Date.now());
+        let current_time = now.getHours() + ":" + now.getMinutes();
+        $('#txt-cnt .message__time').html(current_time);
+        const url = $("#banner").val();
+        $("#txt-cnt .message__text").html(msg);
+        if (url != '') {
+            $("#image").attr('src', url);
+            $("#prv-img").attr('src', url);
+        } else {
+            $("#image").attr('src', '');
+            $("#prv-img").attr('src', '');
+        }
+        if ($("#preview-frame").is(':hidden')) {
+          $("#preview-frame").slideDown('slow', () => {
+              $("#preview-frame").removeClass('hidden');
+          });
+        }
+    } else {
+        if ($("#preview-frame").is(':visible')) {
+          $("#preview-frame").slideUp('fast', () => {
+              $("#preview-frame").addClass('hidden');
+          });
+        }
+        $("#txt-cnt .message__text").html('');
+        $("#prv-img").attr('src', '');
+        $("#image").attr('src', '');
+    }
+  }
+
+  $("#configuration").on('mouseover', (e) => {
+        showContent();
+  })
+
+  $("#banner").on('mouseover', (e) => {
+    showContent();
+  })
+
 
   function onGetTokens(tokens) {
     // Response: tokens = { token: <legacy token>, fuel2token: <fuel api token> }
