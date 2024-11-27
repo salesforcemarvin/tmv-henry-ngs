@@ -215,6 +215,8 @@ define(["postmonger"], function (Postmonger) {
     console.log("Sending message back to updateActivity");
     console.log("saving\n", value);
 
+    console.log("$ Test is OK -----------------------------------------");
+    console.log(payload)
     connection.trigger("updateActivity", payload);
 
     console.log(inArguments.length);
@@ -229,8 +231,7 @@ define(["postmonger"], function (Postmonger) {
   }
 
   $("#submit-this").click(function (e) {
-    console.log("$ Test is OK -----------------------------------------");
-    console.log(payload)
+    
     save();
   });
 });
