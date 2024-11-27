@@ -43,6 +43,18 @@ const getArgument = (key, arg) => {
   return ret;
 }
 
+const clean = (s) => {
+  let r = '';
+  if (s) {
+    let b = '<br />';
+    r = s.replace(/[\u00A0-\u9999<>\&]/g, function(i) { return '&#'+i.charCodeAt(0)+';';});
+    r = (r + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ b +'$2');
+    b = '<br/>';
+    r = (r + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ b +'$2');
+  }
+  return r
+}
+
 app.all("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
@@ -73,7 +85,7 @@ app.all("/execute", async function (req, res) {
 
         let chat_id = getArgument('telegramID', inArguments);
         let emailAddress = getArgument('emailAddress', inArguments);
-        let text = getArgument('customMessage', inArguments);
+        let text = clean(getArgument('customMessage', inArguments))yủty;
         let photo = getArgument('bannerPhoto', inArguments);
         let activeCode = getArgument('activationCode', inArguments);
         let registerDate = getArgument('registeredDate', inArguments);
@@ -83,6 +95,8 @@ app.all("/execute", async function (req, res) {
         let messenger = {};
 
         let endpoint = `${url}/sendMessage`;
+
+        text = text
 
         if (photo) {
           endpoint = `${url}/sendPhoto`;
