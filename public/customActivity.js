@@ -105,11 +105,7 @@ define(["postmonger"], function(Postmonger) {
                     height: 100
                 }, 500, () => {})
             }
-            if ($("preview-frame").is(":hidden")) {
-                $("#preview-frame").slideDown('slow', () => {
-                    $("#preview-frame").removeClass('hidden');
-                })
-            }
+            $("#preview-frame").removeClass('hidden');
             if (url != '') {
                 $("#image").attr('src', url);
                 $("#prv-img").attr('src', url);
@@ -128,11 +124,7 @@ define(["postmonger"], function(Postmonger) {
                     $("#image").addClass('hidden');
                 });
             }
-            if ($("preview-frame").is(":visible")) {
-                $("#preview-frame").slideUp('fast', () => {
-                    $("#preview-frame").addClass('hidden');
-                })
-            }
+            $("#preview-frame").addClass('hidden');
             if ($("#prv").is(":visible")) {
                 $("#prv").slideUp('fast', () => {
                     $("#prv").html('');
