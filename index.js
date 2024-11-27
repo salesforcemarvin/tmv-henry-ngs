@@ -82,10 +82,10 @@ app.all("/execute", async function (req, res) {
 
         let messenger = {};
 
-        let endpoint = `${url}sendMessage`;
+        let endpoint = `${url}/sendMessage`;
 
         if (photo) {
-          endpoint = `${url}sendPhoto`;
+          endpoint = `${url}/sendPhoto`;
           messenger = {
             chat_id,
             photo,
