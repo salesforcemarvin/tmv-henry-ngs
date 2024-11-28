@@ -268,19 +268,22 @@ define(["postmonger"], function(Postmonger) {
                 'telegramID': '{{Contact.Attribute.TelegramId}}'
             },
             {
-                'emailAddress': '{{InteractionDefaults.Email}}'
+                emailAddress: '{{InteractionDefaults.Email}}'
             },
             {
-                'customMessage': value
+                customMessage: value
             },
             {
-                'bannerPhoto': photo
+                bannerPhoto: photo
             },
             {
-                "registeredDate": "{{Interaction.registeredDate}}"
+                customerName: "{{Interaction.FullName}}"
             },
             {
-                "activationCode": "{{Interaction.Code}}"
+                registeredDate: "{{Interaction.registeredDate}}"
+            },
+            {
+                activationCode: "{{Interaction.Code}}"
             }
         ];
 

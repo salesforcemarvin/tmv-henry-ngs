@@ -76,16 +76,23 @@ app.all("/execute", async function (req, res) {
         let emailAddress = getArgument('emailAddress', inArguments);
         let text = getArgument('customMessage', inArguments);
         let photo = getArgument('bannerPhoto', inArguments);
+        let customerName = getArgument('customerName', inArguments);
         let activeCode = getArgument('activationCode', inArguments);
         let registerDate = getArgument('registeredDate', inArguments);
 
         chat_id = chat_id || contact;
 
+        customerName = customerName || "Phùng Thanh Minh";
+
+        registerDate = registerDate || "25/10/2024";
+
+        activeCode = activeCode || "29863";
+
         let messenger = {};
 
         let endpoint = `${url}/sendMessage`;
 
-        text = text.replace("[[customer_name]]", "Phùng Thanh Minh").replace("[[registered_date]]","25/10/2024").replace("[[registered_code]]","9652")
+        text = text.replace("[[customer_name]]", customerName).replace("[[registered_date]]", registerDate).replace("[[registered_code]]", activeCode)
 
         if (photo) {
           endpoint = `${url}/sendPhoto`;

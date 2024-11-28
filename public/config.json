@@ -26,6 +26,9 @@
           "bannerPhoto": "{{Interaction.bannerPhoto}}"
         },
         {
+          "customerName": "{{Interaction.FullName}}"
+        },
+        {
           "telegramID": "{{Interaction.TelegramId}}"
         },
         {
