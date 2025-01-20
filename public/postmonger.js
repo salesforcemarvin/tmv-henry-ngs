@@ -8,7 +8,7 @@
  * http://kevinparkerson.github.com/postmonger/
  *
  *///
-
+ 
 (function (root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define('postmonger', [], function () { return factory(root); });
