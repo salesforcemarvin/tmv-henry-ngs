@@ -50,8 +50,8 @@ app.post("/execute", async function (req, res) {
   let channel = "@bpisalesforce";
   //let contact = "632717898";
   const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
-  const endpoint = "https://api.telegram.org/bot";
-  const url = `${endpoint}${token}`;
+  const domain = "https://api.telegram.org/bot";
+  const url = `${domain}${token}`;
 
   console.log(
     "@ Debug: Execute -----------------------------------------------"
@@ -89,7 +89,7 @@ app.post("/execute", async function (req, res) {
 
       //let messenger = {};
 
-      let endpoint = `${url}/sendMessage`;
+      const endpoint = `${url}/sendMessage`;
 
       // text = text
       //   .replace("[[customer_name]]", customerName)
