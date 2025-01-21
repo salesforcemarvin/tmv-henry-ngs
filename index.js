@@ -97,18 +97,18 @@ app.post("/execute", async function (req, res) {
 
       if (photo) {
         endpoint = `${url}/sendPhoto`;
-        messenger = {
-          chat_id,
-          photo,
-          caption: text,
-          parse_mode: "HTML",
-        };
+        // messenger = {
+        //   chat_id,
+        //   photo,
+        //   caption: text,
+        //   parse_mode: "HTML",
+        // };
       } else {
-        messenger = {
-          chat_id,
-          text,
-          parse_mode: "HTML",
-        };
+        // messenger = {
+        //   chat_id,
+        //   text,
+        //   parse_mode: "HTML",
+        // };
       }
 
       console.log(
@@ -116,7 +116,12 @@ app.post("/execute", async function (req, res) {
       );
       console.log(messenger);
 
-      const response = await axios.post(endpoint, messenger);
+      //const response = await axios.post(endpoint, messenger);
+      
+      const response = await axios.get(
+        `${endpoint}?chat_id=${chat_id}&text=${text}`
+      );
+
 
       res.send(response.data);
       res.status(200).send({ status: "success" });
