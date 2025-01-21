@@ -125,7 +125,7 @@ app.post("/execute", async function (req, res) {
       //   `${endpoint}?chat_id=${chat_id}&text=${text}`
       // );
 
-      for testing connectivity
+      //for testing connectivity
       const response = await axios.get(
         //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
         `${url}/sendMessage?chat_id=${channel}&text=${customMessage}${endpoint}`      
