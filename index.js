@@ -119,18 +119,18 @@ app.post("/execute", async function (req, res) {
       //comsole.log(endpoint);
       //console.log(messenger);
 
-      const response = await axios.post(endpoint, messenger);
+      //const response = await axios.post(endpoint, messenger);
       
       // const response = await axios.get(
       //   `${endpoint}?chat_id=${chat_id}&text=${text}`
       // );
 
-      //for testing connectivity
-      // const response = await axios.get(
-      //   //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
-      //   `${url}/sendMessage?chat_id=${channel}&text=${customMessage}${photo}`      
-      //   //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
-      // );
+      for testing connectivity
+      const response = await axios.get(
+        //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
+        `${url}/sendMessage?chat_id=${channel}&text=${customMessage}${endpoint}`      
+        //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
+      );
 
 
       res.send(response.data);
