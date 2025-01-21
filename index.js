@@ -75,7 +75,7 @@ app.post("/execute", async function (req, res) {
       //let chat_id = getArgument("telegramID", inArguments);
       // let emailAddress = getArgument("emailAddress", inArguments);
       // let text = getArgument("customMessage", inArguments);
-       let photo = getArgument("bannerPhoto", inArguments);
+       //let photo = getArgument("bannerPhoto", inArguments);
       // let customerName = getArgument("customerName", inArguments);
       // let activeCode = getArgument("activationCode", inArguments);
       // let registeredDate = getArgument("registeredDate", inArguments);
@@ -88,7 +88,7 @@ app.post("/execute", async function (req, res) {
       // registerDate = registerDate || "21/01/2025";
       // activeCode = activeCode || "12345";
 
-      let messenger = {};
+      //let messenger = {};
 
       let endpoint = `${url}/sendMessage`;
 
@@ -97,27 +97,27 @@ app.post("/execute", async function (req, res) {
       //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
 
-      if (photo) {
-        endpoint = `${url}/sendPhoto`;
-        // messenger = {
-        //   chat_id,
-        //   photo,
-        //   caption: text,
-        //   parse_mode: "HTML",
-        // };
-      } else {
-        // messenger = {
-        //   chat_id,
-        //   text,
-        //   parse_mode: "HTML",
-        // };
-      }
+      // if (photo) {
+      //   endpoint = `${url}/sendPhoto`;
+      //   messenger = {
+      //     chat_id,
+      //     photo,
+      //     caption: text,
+      //     parse_mode: "HTML",
+      //   };
+      // } else {
+      //   messenger = {
+      //     chat_id,
+      //     text,
+      //     parse_mode: "HTML",
+      //   };
+      // }
 
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
       );
       comsole.log(endpoint);
-      console.log(messenger);
+      //console.log(messenger);
 
       //const response = await axios.post(endpoint, messenger);
       

@@ -24,18 +24,6 @@
         },
         {
           "bannerPhoto": "{{Interaction.bannerPhoto}}"
-        },
-        {
-          "customerName": "{{Interaction.FullName}}"
-        },
-        {
-          "telegramID": "{{Interaction.TelegramId}}"
-        },
-        {
-          "registeredDate": "{{Interaction.RegisteredDate}}"
-        },
-        {
-          "activationCode": "{{Interaction.Code}}"
         }
       ],
       "outArguments": [],

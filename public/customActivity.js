@@ -273,15 +273,6 @@ define(["postmonger"], function(Postmonger) {
             },
             {
                 bannerPhoto: photo
-            },
-            {
-                customerName: "{{Interaction.FullName}}"
-            },
-            {
-                registeredDate: "{{Interaction.registeredDate}}"
-            },
-            {
-                activationCode: "{{Interaction.Code}}"
             }
         ];
 
