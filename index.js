@@ -29,6 +29,18 @@ app.post("/stop", async function (req, res) {
   res.send("Done");
 });
 
+const getArgument = (key, arg) => {
+  let ret = null;
+  if (Array.isArray(arg) && arg.length > 0) {
+    arg.forEach((item) => {
+      if (typeof item === 'object' && Object.hasOwn(item, key)) {
+        ret = item[key];
+      }
+    });
+  }
+  return ret;
+}
+
 app.post("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
@@ -70,20 +82,18 @@ app.post("/execute", async function (req, res) {
 
       chat_id = chat_id; //|| contact;
 
-      customerName = customerName || "Marvin Lacuna";
-
-      registerDate = registerDate || "21/01/2025";
-
-      activeCode = activeCode || "12345";
+      // customerName = customerName || "Marvin Lacuna";
+      // registerDate = registerDate || "21/01/2025";
+      // activeCode = activeCode || "12345";
 
       let messenger = {};
 
       let endpoint = `${url}/sendMessage`;
 
-      text = text
-        .replace("[[customer_name]]", customerName)
-        .replace("[[registered_date]]", registerDate)
-        .replace("[[registered_code]]", activeCode);
+      // text = text
+      //   .replace("[[customer_name]]", customerName)
+      //   .replace("[[registered_date]]", registerDate)
+      //   .replace("[[registered_code]]", activeCode);
 
       if (photo) {
         endpoint = `${url}/sendPhoto`;

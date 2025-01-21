@@ -43,22 +43,22 @@
 			"retryCount": 1,
 			"retryDelay": 10000,
 			"concurrentRequests" : 5,
-      "url": "https://tmv-g2tu.onrender.com/execute"
+      "url": "https://ngs-telegram-marvin-6468e6eb0ad5.herokuapp.com/execute"
 
     }
   },
   "configurationArguments": {
     "save": {
-      "url": "https://tmv-g2tu.onrender.com/save"
+      "url": "https://ngs-telegram-marvin-6468e6eb0ad5.herokuapp.com/save"
     },
     "publish": {
-      "url": "https://tmv-g2tu.onrender.com/publish"
+      "url": "https://ngs-telegram-marvin-6468e6eb0ad5.herokuapp.com/publish"
     },
     "validate": {
-      "url": "https://tmv-g2tu.onrender.com/validate"
+      "url": "https://ngs-telegram-marvin-6468e6eb0ad5.herokuapp.com/validate"
     },
     "stop": {
-      "url": "https://tmv-g2tu.onrender.com/stop"
+      "url": "https://ngs-telegram-marvin-6468e6eb0ad5.herokuapp.com/stop"
     }
   },
   "wizardSteps": [
