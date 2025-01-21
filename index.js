@@ -7,23 +7,23 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 const config = require("./public/config.json");
-app.post("/save", function (req, res) {
+app.all("/save", function (req, res) {
   // Handle save request
   console.log("SAVE REQUEST");
   console.log(req.body);
   res.sendStatus(200);
 });
-app.post("/publish", function (req, res) {
+app.all("/publish", function (req, res) {
   // Handle publish request
   res.sendStatus(200);
 });
-app.post("/validate", function (req, res) {
+app.all("/validate", function (req, res) {
   // Handle validate request
   console.log("VALIDATE REQUEST");
   console.log(req.body);
   res.sendStatus(200);
 });
-app.post("/stop", async function (req, res) {
+app.all("/stop", async function (req, res) {
   console.log("STOPPING JOURNEY");
   console.log(req.body);
   res.send("Done");
@@ -41,7 +41,7 @@ const getArgument = (key, arg) => {
   return ret;
 }
 
-app.post("/execute", async function (req, res) {
+app.all("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
   console.log("RUNNING CUSTOM ACTIVITY HERE");
