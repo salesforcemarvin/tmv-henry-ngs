@@ -94,7 +94,7 @@ app.post("/execute", async function (req, res) {
 
 
 
-      let messenger = "";
+      const messenger = "";
       if (photo) {
         endpoint = `${url}/sendPhoto`;
         messenger = `chat_id=${channel}&photo=${photo}&caption=${customMessage}}&parse_mode=HTML`;
@@ -103,7 +103,8 @@ app.post("/execute", async function (req, res) {
         messenger = `chat_id=${channel}&text=${customMessage}`;
         //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       }
-      const response = await axios.get(`${endpoint}?${messenger}`);      
+      //const response = await axios.get(`${endpoint}?${messenger}`);      
+      const response = await axios.get(`${endpoint}?chat_id=${channel}&text=${messenger}`);      
 
       //Note: This is for POST
       // let messenger = {};
