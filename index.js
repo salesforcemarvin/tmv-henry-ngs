@@ -126,7 +126,8 @@ app.post("/execute", async function (req, res) {
 
       //for testing connectivity
       const response = await axios.get(
-        `${endpoint}?chat_id=${channel}&text=${customMessage}`
+        //`${endpoint}?chat_id=${channel}&text=${customMessage}`
+        `${endpoint}?chat_id=${channel}&text=903121`
       );
 
 
