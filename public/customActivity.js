@@ -264,9 +264,7 @@ define(["postmonger"], function(Postmonger) {
         payload["arguments"].execute.inArguments = [{ message: value }];
         //payload["arguments"].execute.inArguments.push({"text": value})
 
-        payload["arguments"].execute.inArguments = [{
-                'telegramID': '{{Contact.Attribute.TelegramId}}'
-            },
+        payload["arguments"].execute.inArguments = [
             {
                 emailAddress: '{{InteractionDefaults.Email}}'
             },
@@ -303,10 +301,9 @@ define(["postmonger"], function(Postmonger) {
         connection.trigger("updateActivity", payload);
 
         // console.log(inArguments.length);
-        // console.log(inArguments[0]['telegramID']);
-        // console.log(inArguments[1]['emailAddress']);
-        // console.log(inArguments[2]['customMessage']);
-        // console.log(inArguments[3]['bannerPhoto']);
+        // console.log(inArguments[0]['emailAddress']);
+        // console.log(inArguments[1]['customMessage']);
+        // console.log(inArguments[2]['bannerPhoto']);
     }
 
     function getMessage() {
