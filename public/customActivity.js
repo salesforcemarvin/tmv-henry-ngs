@@ -284,7 +284,7 @@ define(["postmonger"], function(Postmonger) {
               'emailAddress': '{{InteractionDefaults.Email}}'
             },
             {
-              'customMessage': "try nga lang!"
+              'customMessage': value
             }
           ];
 
