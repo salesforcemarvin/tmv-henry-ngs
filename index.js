@@ -88,30 +88,30 @@ app.post("/execute", async function (req, res) {
       // registerDate = registerDate || "21/01/2025";
       // activeCode = activeCode || "12345";
 
-      //let messenger = {};
+      let messenger = {};
 
-      //const endpoint = `${url}/sendMessage`;
+      const endpoint = `${url}/sendMessage`;
 
       // text = text
       //   .replace("[[customer_name]]", customerName)
       //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
 
-      // if (photo) {
-      //   endpoint = `${url}/sendPhoto`;
-      //   messenger = {
-      //     chat_id,
-      //     photo,
-      //     caption: text,
-      //     parse_mode: "HTML",
-      //   };
-      // } else {
-      //   messenger = {
-      //     chat_id,
-      //     text,
-      //     parse_mode: "HTML",
-      //   };
-      // }
+      if (photo) {
+        endpoint = `${url}/sendPhoto`;
+        messenger = {
+          chat_id,
+          photo,
+          caption: customMessage,
+          parse_mode: "HTML",
+        };
+      } else {
+        messenger = {
+          chat_id,
+          customMessage,
+          parse_mode: "HTML",
+        };
+      }
 
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
@@ -119,18 +119,18 @@ app.post("/execute", async function (req, res) {
       //comsole.log(endpoint);
       //console.log(messenger);
 
-      //const response = await axios.post(endpoint, messenger);
+      const response = await axios.post(endpoint, messenger);
       
       // const response = await axios.get(
       //   `${endpoint}?chat_id=${chat_id}&text=${text}`
       // );
 
       //for testing connectivity
-      const response = await axios.get(
-        //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
-        `${url}/sendMessage?chat_id=${channel}&text=${customMessage}${photo}`      
-        //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
-      );
+      // const response = await axios.get(
+      //   //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
+      //   `${url}/sendMessage?chat_id=${channel}&text=${customMessage}${photo}`      
+      //   //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
+      // );
 
 
       res.send(response.data);
