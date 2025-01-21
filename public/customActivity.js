@@ -264,17 +264,29 @@ define(["postmonger"], function(Postmonger) {
         payload["arguments"].execute.inArguments = [{ message: value }];
         //payload["arguments"].execute.inArguments.push({"text": value})
 
+        // payload["arguments"].execute.inArguments = [
+        //     {
+        //         emailAddress: '{{InteractionDefaults.Email}}'
+        //     },
+        //     {
+        //         customMessage: value
+        //     },
+        //     {
+        //         bannerPhoto: photo
+        //     }
+        // ];
+
         payload["arguments"].execute.inArguments = [
             {
-                emailAddress: '{{InteractionDefaults.Email}}'
+              'chat_id': "@bpisalesforce"
             },
             {
-                customMessage: value
+              'emailAddress': '{{InteractionDefaults.Email}}'
             },
             {
-                bannerPhoto: photo
+              'customMessage': value
             }
-        ];
+          ];
 
         payload["metaData"].isConfigured = true;
 
