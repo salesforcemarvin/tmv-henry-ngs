@@ -50,9 +50,9 @@ app.all("/execute", async function (req, res) {
   console.log("RUNNING CUSTOM ACTIVITY HERE");
   console.log("-------REQUEST------");
   
-  let channel = "@VCB_poc";
+  let channel = "@bpisalesforce";
   let contact = "632717898";
-  const token = "8091993565:AAE_BFhW4GU3e1702RlwdUTycr_DL1gOhBo";
+  const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
   const endpoint = "https://api.telegram.org/bot";
   const url = `${endpoint}${token}`;
 

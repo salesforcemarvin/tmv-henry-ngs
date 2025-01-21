@@ -287,10 +287,7 @@ define(["postmonger"], function(Postmonger) {
             }
         ];
 
-        //payload["arguments"].execute.inArguments = [{ "chat_id": "@vcbsalesforce", "text": value }];
-
         payload["metaData"].isConfigured = true;
-
 
         //console.log("LOG AGAIN" + payload);
         let inArguments = payload.arguments.execute.inArguments;
