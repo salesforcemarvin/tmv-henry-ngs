@@ -68,14 +68,14 @@ app.post("/execute", async function (req, res) {
       const customMessage = inArguments[1]['customMessage'];
       const photo = inArguments[2]['bannerPhoto'];
       
-      var customerName = "Marvin Lacuna"; //TODO: To replace
-      var registerDate = "22/01/2025";
-      var activeCode = "12345";
+      // var customerName = "Marvin Lacuna"; //TODO: To replace
+      // var registerDate = "22/01/2025";
+      // var activeCode = "12345";
 
-      customMessage = customMessage
-        .replace("[[customer_name]]", customerName)
-        .replace("[[registered_date]]", registerDate)
-        .replace("[[activate_code]]", activeCode);
+      // customMessage = customMessage
+      //   .replace("[[customer_name]]", customerName)
+      //   .replace("[[registered_date]]", registerDate)
+      //   .replace("[[activate_code]]", activeCode);
       
       var endpoint = "";
       var messenger = "";
