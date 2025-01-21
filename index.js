@@ -88,26 +88,24 @@ app.post("/execute", async function (req, res) {
       //   .replace("[[registered_date]]", registerDate)
       //   .replace("[[activation_code]]", activeCode);
 
-      let messenger = {};
-      const endpoint = `${url}/sendMessage`;
+      // let messenger = {};
+      // const endpoint = `${url}/sendMessage`;
 
-      if (photo) {
-        endpoint = `${url}/sendPhoto`;
-        messenger = {
-          chat_id,
-          photo,
-          caption: text,
-          parse_mode: "HTML",
-        };
-      } else {
-        // messenger = {
-        //   chat_id,
-        //   text,
-        //   parse_mode: "HTML",
-        // };
-
-        customMessage = customMessage + " ADDED BY MARVIN";
-      }
+      // if (photo) {
+      //   endpoint = `${url}/sendPhoto`;
+      //   messenger = {
+      //     chat_id,
+      //     photo,
+      //     caption: text,
+      //     parse_mode: "HTML",
+      //   };
+      // } else {
+      //   messenger = {
+      //     chat_id,
+      //     text,
+      //     parse_mode: "HTML",
+      //   };
+      // }
 
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
@@ -118,7 +116,7 @@ app.post("/execute", async function (req, res) {
 
       //for testing connectivity
       const response = await axios.get(
-        `${endpoint}?chat_id=${chat_id}&text=${customMessage}`      
+        `${url}/sendMessage?chat_id=${chat_id}&text=${customMessage}`      
       );
       //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
 
