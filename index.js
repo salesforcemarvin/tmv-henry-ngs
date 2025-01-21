@@ -115,10 +115,14 @@ app.post("/execute", async function (req, res) {
       //const response = await axios.post(endpoint, messenger);
 
       //for testing connectivity
+      // const response = await axios.get(
+      //   `${url}/sendMessage?chat_id=${chat_id}&text=${text}`      
+      // );
       const response = await axios.get(
-        `${url}/sendMessage?chat_id=${chat_id}&text=${text}`      
+        `https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       );
-      //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
+      
+
 
       res.send(response.data);
       res.status(200).send({ status: "success" });
