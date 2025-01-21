@@ -80,6 +80,7 @@ app.post("/execute", async function (req, res) {
       // let activeCode = getArgument("activationCode", inArguments);
       // let registeredDate = getArgument("registeredDate", inArguments);
       const customMessage = inArguments[1]['customMessage'];
+      const photo = inArguments[2]['bannerPhoto'];
 
       //chat_id = chat_id; //|| contact;
 
@@ -127,7 +128,7 @@ app.post("/execute", async function (req, res) {
       //for testing connectivity
       const response = await axios.get(
         //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
-        `${url}/sendMessage?chat_id=${channel}&text=${customMessage}`      
+        `${url}/sendMessage?chat_id=${channel}&text=${customMessage}${photo}`      
         //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       );
 

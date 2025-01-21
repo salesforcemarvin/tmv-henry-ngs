@@ -253,7 +253,7 @@ define(["postmonger"], function(Postmonger) {
 
     function save() {
         var value = getMessage();
-        //var photo = getBanner();
+        var photo = getBanner();
 
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
@@ -264,26 +264,26 @@ define(["postmonger"], function(Postmonger) {
         payload["arguments"].execute.inArguments = [{ message: value }];
         //payload["arguments"].execute.inArguments.push({"text": value})
 
-        // payload["arguments"].execute.inArguments = [
-        //     {
-        //         emailAddress: '{{InteractionDefaults.Email}}'
-        //     },
-        //     {
-        //         customMessage: value
-        //     },
-        //     {
-        //         bannerPhoto: photo
-        //     }
-        // ];
-
         payload["arguments"].execute.inArguments = [
             {
-              'emailAddress': '{{InteractionDefaults.Email}}'
+                emailAddress: '{{InteractionDefaults.Email}}'
             },
             {
-              'customMessage': value
+                customMessage: value
+            },
+            {
+                bannerPhoto: photo
             }
-          ];
+        ];
+
+        // payload["arguments"].execute.inArguments = [
+        //     {
+        //       'emailAddress': '{{InteractionDefaults.Email}}'
+        //     },
+        //     {
+        //       'customMessage': value
+        //     }
+        //   ];
 
         payload["metaData"].isConfigured = true;
 
@@ -303,7 +303,7 @@ define(["postmonger"], function(Postmonger) {
         console.log(inArguments.length);
         console.log(inArguments[0]['emailAddress']);
         console.log(inArguments[1]['customMessage']);
-        //console.log(inArguments[2]['bannerPhoto']);
+        console.log(inArguments[2]['bannerPhoto']);
 
 
 
