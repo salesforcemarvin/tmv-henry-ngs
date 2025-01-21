@@ -81,51 +81,48 @@ app.post("/execute", async function (req, res) {
       // let registeredDate = getArgument("registeredDate", inArguments);
       const customMessage = inArguments[1]['customMessage'];
       const photo = inArguments[2]['bannerPhoto'];
-
-      //chat_id = chat_id; //|| contact;
+      const endpoint = `${url}/sendMessage`;
 
       // customerName = customerName || "Marvin Lacuna";
       // registerDate = registerDate || "21/01/2025";
       // activeCode = activeCode || "12345";
-
-      let messenger = {};
-
-      const endpoint = `${url}/sendMessage`;
 
       // text = text
       //   .replace("[[customer_name]]", customerName)
       //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
 
+
+
+      let messenger = "";
       if (photo) {
         endpoint = `${url}/sendPhoto`;
-        // messenger = {
-        //   chat_id,
-        //   photo,
-        //   caption: text,
-        //   parse_mode: "HTML",
-        // };
         messenger = `chat_id=${channel}&photo=${photo}&caption=${customMessage}}&parse_mode=HTML`;
-
         //https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendPhoto?chat_id=@bpisalesforce&photo=https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg&caption=qwertyyyyyyyyyyy&parse_mode=HTML
       } else {
-        // messenger = {
-        //   chat_id,
-        //   text,
-        //   parse_mode: "HTML",
-        // };
         messenger = `chat_id=${channel}&text=${customMessage}`;
+        //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       }
+      const response = await axios.get(`${endpoint}?${messenger}`);      
 
-      console.log(
-        "@ Debug: Check messenger will be sent --------------------------------------------"
-      );
-      
-      //const response = await axios.post(endpoint, messenger);
-
-      //for testing connectivity
-      const response = await axios.get(`${endpoint}?${messenger}`);
-      //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
+      //Note: This is for POST
+      // let messenger = {};
+      // if (photo) {
+      //   endpoint = `${url}/sendPhoto`;
+      //   messenger = {
+      //     chat_id,
+      //     photo,
+      //     caption: text,
+      //     parse_mode: "HTML",
+      //   };
+      // } else {
+      //   messenger = {
+      //     chat_id,
+      //     text,
+      //     parse_mode: "HTML",
+      //   };
+      // }
+      // const response = await axios.post(endpoint, messenger);
 
       res.send(response.data);
       res.status(200).send({ status: "success" });
