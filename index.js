@@ -89,7 +89,7 @@ app.post("/execute", async function (req, res) {
 
       //let messenger = {};
 
-      const endpoint = `${url}/sendMessage`;
+      //const endpoint = `${url}/sendMessage`;
 
       // text = text
       //   .replace("[[customer_name]]", customerName)
@@ -127,7 +127,7 @@ app.post("/execute", async function (req, res) {
       //for testing connectivity
       const response = await axios.get(
         //${endpoint}?chat_id=${channel}&text=${customMessage}`
-        `${endpoint}?chat_id=${channel}&text=kkkkkk`
+        `${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
         //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       );
 
