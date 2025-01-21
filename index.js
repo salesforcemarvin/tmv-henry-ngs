@@ -81,8 +81,8 @@ app.post("/execute", async function (req, res) {
       // let registeredDate = getArgument("registeredDate", inArguments);
       const customMessage = inArguments[1]['customMessage'];
       const photo = inArguments[2]['bannerPhoto'];
-      //const endpoint = `${url}/sendMessage`;
-      const endpoint = `${url}/sendPhoto`;
+      
+ 
       
       // customerName = customerName || "Marvin Lacuna";
       // registerDate = registerDate || "21/01/2025";
@@ -93,19 +93,22 @@ app.post("/execute", async function (req, res) {
       //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
       
-
-      // if (photo) {
-      //   endpoint = `${url}/sendPhoto`;
-      //   messenger = `photo=${photo}&caption=${customMessage}}&parse_mode=HTML`;
-      //   //https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendPhoto?chat_id=@bpisalesforce&photo=https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg&caption=qwertyyyyyyyyyyy&parse_mode=HTML
-      // } else {
-      //   messenger = `text=${customMessage}`;
-      //   //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
-      // }
-      //const response = await axios.get(`${endpoint}?${messenger}`);      
-      //const response = await axios.get(`${endpoint}?chat_id=${channel}&text=${messenger}`);      
-      const response = await axios.get(`${endpoint}?chat_id=${channel}&photo=${photo}&caption=${customMessage}&parse_mode=HTML`);      
-
+      var endpoint = "";
+      var messenger = "";
+      if (photo) {
+        endpoint = `${url}/sendPhoto`;
+        messenger = `photo=${photo}&caption=${customMessage}}&parse_mode=HTML`;
+        //const response = await axios.get(`${endpoint}?chat_id=${channel}&photo=${photo}&caption=${customMessage}&parse_mode=HTML`);        
+        //https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendPhoto?chat_id=@bpisalesforce&photo=https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg&caption=qwertyyyyyyyyyyy&parse_mode=HTML
+      } else {
+        endpoint = `${url}/sendMessage`;
+        messenger = `text=${customMessage}`;
+        //const response = await axios.get(`${endpoint}?chat_id=${channel}&text=${messenger}`);      
+        //https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha
+      }
+      
+      const response = await axios.get(`${endpoint}?chat_id=${channel}&${messenger}`);      
+      
       res.send(response.data);
       res.status(200).send({ status: "success" });
     } catch (error) {
