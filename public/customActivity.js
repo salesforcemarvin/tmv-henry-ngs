@@ -299,7 +299,7 @@ define(["postmonger"], function(Postmonger) {
         console.log("saving\n", value);
 
         console.log("$ Test is OK -----------------------------------------");
-        //console.log(inArguments)
+        console.log(inArguments)
 
         connection.trigger("updateActivity", payload);
 
@@ -308,6 +308,24 @@ define(["postmonger"], function(Postmonger) {
         console.log(inArguments[1]['emailAddress']);
         console.log(inArguments[2]['customMessage']);
         //console.log(inArguments[2]['bannerPhoto']);
+
+
+
+        // if (Array.isArray(inArguments) && inArguments.length > 0) {
+        //     inArguments.forEach((item, key) => {
+        //     if (typeof item === 'object' && Object.hasOwn(item, key)) {
+        //         console.log(item[key]);
+        //     }
+        // });
+
+        if (Array.isArray(inArguments) && inArguments.length > 0) {
+            inArguments.forEach((item, key) => {
+                if (typeof item === 'object' && item !== null && item.hasOwnProperty(key)) {
+                    console.log(item[key]);
+                }
+            });
+        }
+        
     }
 
     function getMessage() {
