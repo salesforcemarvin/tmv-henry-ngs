@@ -284,7 +284,7 @@ define(["postmonger"], function(Postmonger) {
               'emailAddress': '{{InteractionDefaults.Email}}'
             },
             {
-              'customMessage': value
+              'customMessage': "try nga lang!"
             }
           ];
 
@@ -318,13 +318,13 @@ define(["postmonger"], function(Postmonger) {
         //     }
         // });
 
-        if (Array.isArray(inArguments) && inArguments.length > 0) {
-            inArguments.forEach((item, key) => {
-                if (typeof item === 'object' && item !== null && item.hasOwnProperty(key)) {
-                    console.log(item[key]);
-                }
-            });
-        }
+        // if (Array.isArray(inArguments) && inArguments.length > 0) {
+        //     inArguments.forEach((item, key) => {
+        //         if (typeof item === 'object' && item !== null && item.hasOwnProperty(key)) {
+        //             console.log(item[key]);
+        //         }
+        //     });
+        // }
         
     }
 
