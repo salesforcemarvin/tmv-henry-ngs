@@ -47,18 +47,18 @@ app.post("/execute", async function (req, res) {
   console.log("RUNNING CUSTOM ACTIVITY HERE");
   console.log("-------REQUEST------");
 
-  let channel = "@bpisalesforce";
-  //let contact = "632717898";
+  const domain = "https://api.telegram.org/bot";
+  const url = `${domain}${token}`;
+
+  //TODO: replace with your telegram 
+  let chat_id = "@bpisalesforce";
   const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
-  const endpoint = "https://api.telegram.org/bot";
-  const url = `${endpoint}${token}`;
+
 
   console.log(
     "@ Debug: Execute -----------------------------------------------"
   );
-  //console.log(req.body);
 
-  // console.log(config);
   try {
     try {
       //let contactKey = req.body.keyValue
@@ -70,66 +70,56 @@ app.post("/execute", async function (req, res) {
       console.log(inArguments);
 
       // console.log('@ Debug: Body Execute -----------------------------------------------');
-      // console.log(req.body);
+      console.log(req.body);
 
-      //let chat_id = getArgument("telegramID", inArguments);
-      // let emailAddress = getArgument("emailAddress", inArguments);
-      // let text = getArgument("customMessage", inArguments);
-       //let photo = getArgument("bannerPhoto", inArguments);
-      // let customerName = getArgument("customerName", inArguments);
-      // let activeCode = getArgument("activationCode", inArguments);
-      // let registeredDate = getArgument("registeredDate", inArguments);
-      const customMessage = inArguments[1]['customMessage'];
+      const emailAddress = inArguments[0]['emailAddress'];
+      const text = inArguments[1]['customMessage'];
+      const photo = inArguments[2]['bannerPhoto'];
 
-      //chat_id = chat_id; //|| contact;
+      //TODO: replace with your information
+      const customerName = "Marvin Lacuna";
+      const email = emailAddress || "mlacuna@salesforce.com";
+      const registerDate =  "21/01/2025";
+      const activeCode = "12345";
 
-      // customerName = customerName || "Marvin Lacuna";
-      // registerDate = registerDate || "21/01/2025";
-      // activeCode = activeCode || "12345";
+      let messenger = {};
 
-      //let messenger = {};
+      const endpoint = `${url}/sendMessage`;
 
-      //const endpoint = `${url}/sendMessage`;
+      text = text
+        .replace("[[customer_name]]", customerName)
+        .replace("[[email_address]]", email)
+        .replace("[[registered_date]]", registerDate)
+        .replace("[[activation_code]]", activeCode);
 
-      // text = text
-      //   .replace("[[customer_name]]", customerName)
-      //   .replace("[[registered_date]]", registeredDate)
-      //   .replace("[[registered_code]]", activeCode);
-
-      // if (photo) {
-      //   endpoint = `${url}/sendPhoto`;
-      //   messenger = {
-      //     chat_id,
-      //     photo,
-      //     caption: text,
-      //     parse_mode: "HTML",
-      //   };
-      // } else {
-      //   messenger = {
-      //     chat_id,
-      //     text,
-      //     parse_mode: "HTML",
-      //   };
-      // }
+      if (photo) {
+        endpoint = `${url}/sendPhoto`;
+        messenger = {
+          chat_id,
+          photo,
+          caption: text,
+          parse_mode: "HTML",
+        };
+      } else {
+        messenger = {
+          chat_id,
+          text,
+          parse_mode: "HTML",
+        };
+      }
 
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
       );
-      //comsole.log(endpoint);
       //console.log(messenger);
 
-      //const response = await axios.post(endpoint, messenger);
-      
-      // const response = await axios.get(
-      //   `${endpoint}?chat_id=${chat_id}&text=${text}`
-      // );
+      const response = await axios.post(endpoint, messenger);
 
       //for testing connectivity
-      const response = await axios.get(
-        //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
-        `${url}/sendMessage?chat_id=${channel}&text=${customMessage}`      
+      //const response = await axios.get(
+        //`${url}/sendMessage?chat_id=${chat_id}&text=${customMessage}`      
         //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
-      );
+      //);
 
 
       res.send(response.data);
