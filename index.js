@@ -50,13 +50,13 @@ app.post("/execute", async function (req, res) {
   let channel = "@bpisalesforce";
   //let contact = "632717898";
   const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
-  const domain = "https://api.telegram.org/bot";
-  const url = `${domain}${token}`;
+  const endpoint = "https://api.telegram.org/bot";
+  const url = `${endpoint}${token}/`;
 
   console.log(
     "@ Debug: Execute -----------------------------------------------"
   );
-  console.log(req.body);
+  //console.log(req.body);
 
   // console.log(config);
   try {
@@ -115,7 +115,7 @@ app.post("/execute", async function (req, res) {
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
       );
-      comsole.log(endpoint);
+      //comsole.log(endpoint);
       //console.log(messenger);
 
       //const response = await axios.post(endpoint, messenger);
@@ -128,7 +128,7 @@ app.post("/execute", async function (req, res) {
       const response = await axios.get(
         //`${endpoint}?chat_id=${channel}&text=${customMessage}`
         //`${endpoint}?chat_id=${channel}&text=903121`
-        `https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=dsdaasdasds`
+        `https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       );
 
 
