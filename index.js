@@ -77,20 +77,19 @@ app.post("/execute", async function (req, res) {
       const photo = inArguments[2]['bannerPhoto'];
 
       //TODO: replace with your information
-      const customerName = "Marvin Lacuna";
-      const email = emailAddress || "mlacuna@salesforce.com";
-      const registerDate =  "21/01/2025";
-      const activeCode = "12345";
+      // const customerName = "Marvin Lacuna";
+      // const email = emailAddress || "mlacuna@salesforce.com";
+      // const registerDate =  "21/01/2025";
+      // const activeCode = "12345";
+
+      // text = text
+      //   .replace("[[customer_name]]", customerName)
+      //   .replace("[[email_address]]", email)
+      //   .replace("[[registered_date]]", registerDate)
+      //   .replace("[[activation_code]]", activeCode);
 
       let messenger = {};
-
       const endpoint = `${url}/sendMessage`;
-
-      text = text
-        .replace("[[customer_name]]", customerName)
-        .replace("[[email_address]]", email)
-        .replace("[[registered_date]]", registerDate)
-        .replace("[[activation_code]]", activeCode);
 
       if (photo) {
         endpoint = `${url}/sendPhoto`;
