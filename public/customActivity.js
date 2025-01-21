@@ -304,9 +304,10 @@ define(["postmonger"], function(Postmonger) {
         connection.trigger("updateActivity", payload);
 
         console.log(inArguments.length);
-        console.log(inArguments[0]['emailAddress']);
+        console.log(inArguments[0]['chat_id']);
+        console.log(inArguments[1]['emailAddress']);
         console.log(inArguments[1]['customMessage']);
-        console.log(inArguments[2]['bannerPhoto']);
+        //console.log(inArguments[2]['bannerPhoto']);
     }
 
     function getMessage() {
