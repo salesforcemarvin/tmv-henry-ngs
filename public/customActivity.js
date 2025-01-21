@@ -276,15 +276,6 @@ define(["postmonger"], function(Postmonger) {
             }
         ];
 
-        // payload["arguments"].execute.inArguments = [
-        //     {
-        //       'emailAddress': '{{InteractionDefaults.Email}}'
-        //     },
-        //     {
-        //       'customMessage': value
-        //     }
-        //   ];
-
         payload["metaData"].isConfigured = true;
 
         //console.log("LOG AGAIN" + payload);
@@ -304,23 +295,6 @@ define(["postmonger"], function(Postmonger) {
         console.log(inArguments[0]['emailAddress']);
         console.log(inArguments[1]['customMessage']);
         console.log(inArguments[2]['bannerPhoto']);
-
-
-
-        // if (Array.isArray(inArguments) && inArguments.length > 0) {
-        //     inArguments.forEach((item, key) => {
-        //     if (typeof item === 'object' && Object.hasOwn(item, key)) {
-        //         console.log(item[key]);
-        //     }
-        // });
-
-        // if (Array.isArray(inArguments) && inArguments.length > 0) {
-        //     inArguments.forEach((item, key) => {
-        //         if (typeof item === 'object' && item !== null && item.hasOwnProperty(key)) {
-        //             console.log(item[key]);
-        //         }
-        //     });
-        // }
         
     }
 

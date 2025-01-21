@@ -47,18 +47,14 @@ app.post("/execute", async function (req, res) {
   console.log("RUNNING CUSTOM ACTIVITY HERE");
   console.log("-------REQUEST------");
 
+  //TODO: To replace
   let channel = "@bpisalesforce";
-  //let contact = "632717898";
   const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
   const telegramAPI = "https://api.telegram.org/bot";
   const url = `${telegramAPI}${token}`;
 
-  console.log(
-    "@ Debug: Execute -----------------------------------------------"
-  );
-  //console.log(req.body);
+  console.log("@ Debug: Execute -----------------------------------------------");
 
-  // console.log(config);
   try {
     try {
       //let contactKey = req.body.keyValue
@@ -69,29 +65,17 @@ app.post("/execute", async function (req, res) {
       );
       console.log(inArguments);
 
-      // console.log('@ Debug: Body Execute -----------------------------------------------');
-      // console.log(req.body);
-
-      //let chat_id = getArgument("telegramID", inArguments);
-      // let emailAddress = getArgument("emailAddress", inArguments);
-      // let text = getArgument("customMessage", inArguments);
-       //let photo = getArgument("bannerPhoto", inArguments);
-      // let customerName = getArgument("customerName", inArguments);
-      // let activeCode = getArgument("activationCode", inArguments);
-      // let registeredDate = getArgument("registeredDate", inArguments);
       const customMessage = inArguments[1]['customMessage'];
       const photo = inArguments[2]['bannerPhoto'];
       
- 
-      
-      // customerName = customerName || "Marvin Lacuna";
-      // registerDate = registerDate || "21/01/2025";
-      // activeCode = activeCode || "12345";
+      var customerName = "Marvin Lacuna"; //TODO: To replace
+      var registerDate = Date.now();
+      var activeCode = "12345";
 
-      // text = text
-      //   .replace("[[customer_name]]", customerName)
-      //   .replace("[[registered_date]]", registeredDate)
-      //   .replace("[[registered_code]]", activeCode);
+      customMessage = customMessage
+        .replace("[[customer_name]]", customerName)
+        .replace("[[registered_date]]", registerDate)
+        .replace("[[activate_code]]", activeCode);
       
       var endpoint = "";
       var messenger = "";
