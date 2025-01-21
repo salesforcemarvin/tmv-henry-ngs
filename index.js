@@ -88,7 +88,7 @@ app.post("/execute", async function (req, res) {
       // registerDate = registerDate || "21/01/2025";
       // activeCode = activeCode || "12345";
 
-      //let messenger = {};
+      let messenger = {};
 
       const endpoint = `${url}/sendMessage`;
 
@@ -113,24 +113,26 @@ app.post("/execute", async function (req, res) {
       //   };
       // }
 
+      messenger = {
+          chat_id,
+          customMessage,
+          parse_mode: "HTML",
+        };
+
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
       );
       //comsole.log(endpoint);
       //console.log(messenger);
 
-      //const response = await axios.post(endpoint, messenger);
-      
-      // const response = await axios.get(
-      //   `${endpoint}?chat_id=${chat_id}&text=${text}`
-      // );
+      const response = await axios.post(endpoint, messenger);
 
       //for testing connectivity
-      const response = await axios.get(
-        //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
-        `${endpoint}?chat_id=${channel}&text=${customMessage} `      
-        //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
-      );
+      // const response = await axios.get(
+      //   //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
+      //   `${endpoint}?chat_id=${channel}&text=${customMessage} `      
+      //   //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
+      // );
 
 
       res.send(response.data);
