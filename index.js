@@ -122,8 +122,9 @@ app.post("/execute", async function (req, res) {
       //   `${endpoint}?chat_id=${chat_id}&text=${text}`
       // );
 
+      //for testing connectivity
       const response = await axios.get(
-        `https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=dsdaasdasds`
+        `${url}?chat_id=@bpisalesforce&text=123456`
       );
 
 
