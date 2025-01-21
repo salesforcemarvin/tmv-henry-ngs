@@ -92,7 +92,7 @@ app.post("/execute", async function (req, res) {
       //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
 
-      // const messenger = "";
+      const messenger = `photo=${photo}&caption=${customMessage}}&parse_mode=HTML`;
       // if (photo) {
       //   endpoint = `${url}/sendPhoto`;
       //   messenger = `photo=${photo}&caption=${customMessage}}&parse_mode=HTML`;
@@ -102,7 +102,7 @@ app.post("/execute", async function (req, res) {
       //   //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       // }
       //const response = await axios.get(`${endpoint}?${messenger}`);      
-      const response = await axios.get(`${endpoint}?chat_id=${channel}&text=${customMessage}`);      
+      const response = await axios.get(`${endpoint}?chat_id=${channel}&text=${messenger}`);      
 
       res.send(response.data);
       res.status(200).send({ status: "success" });
