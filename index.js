@@ -69,7 +69,7 @@ app.post("/execute", async function (req, res) {
       const photo = inArguments[2]['bannerPhoto'];
       
       var customerName = "Marvin Lacuna"; //TODO: To replace
-      var registerDate = Date.now();
+      var registerDate = "22/01/2025";
       var activeCode = "12345";
 
       customMessage = customMessage
