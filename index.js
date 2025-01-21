@@ -68,7 +68,7 @@ app.post("/execute", async function (req, res) {
       let activeCode = getArgument("activationCode", inArguments);
       let registerDate = getArgument("registeredDate", inArguments);
 
-      chat_id = chat_id || contact;
+      chat_id = chat_id; //|| contact;
 
       customerName = customerName || "Marvin Lacuna";
 
