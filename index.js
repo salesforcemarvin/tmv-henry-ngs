@@ -50,8 +50,8 @@ app.post("/execute", async function (req, res) {
   let channel = "@bpisalesforce";
   //let contact = "632717898";
   const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
-  const endpoint = "https://api.telegram.org/bot";
-  const url = `${endpoint}${token}`;
+  const telegramAPI = "https://api.telegram.org/bot";
+  const url = `${telegramAPI}${token}`;
 
   console.log(
     "@ Debug: Execute -----------------------------------------------"
@@ -88,7 +88,7 @@ app.post("/execute", async function (req, res) {
       // registerDate = registerDate || "21/01/2025";
       // activeCode = activeCode || "12345";
 
-      let messenger = {};
+      //let messenger = {};
 
       const endpoint = `${url}/sendMessage`;
 
@@ -97,21 +97,21 @@ app.post("/execute", async function (req, res) {
       //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
 
-      if (photo) {
-        endpoint = `${url}/sendPhoto`;
-        messenger = {
-          chat_id,
-          photo,
-          caption: customMessage,
-          parse_mode: "HTML",
-        };
-      } else {
-        messenger = {
-          chat_id,
-          customMessage,
-          parse_mode: "HTML",
-        };
-      }
+      // if (photo) {
+      //   endpoint = `${url}/sendPhoto`;
+      //   messenger = {
+      //     chat_id,
+      //     photo,
+      //     caption: text,
+      //     parse_mode: "HTML",
+      //   };
+      // } else {
+      //   messenger = {
+      //     chat_id,
+      //     text,
+      //     parse_mode: "HTML",
+      //   };
+      // }
 
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
@@ -128,7 +128,7 @@ app.post("/execute", async function (req, res) {
       //for testing connectivity
       const response = await axios.get(
         //`${url}/sendMessage?chat_id=${channel}&text=kkkkkk`
-        `${url}/sendMessage?chat_id=${channel}&text=${customMessage}${endpoint}`      
+        `${url}/sendMessage?chat_id=${channel}&text=${customMessage} ${endpoint}`      
         //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
       );
 
