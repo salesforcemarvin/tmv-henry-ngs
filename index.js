@@ -51,7 +51,7 @@ app.post("/execute", async function (req, res) {
   //let contact = "632717898";
   const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
   const endpoint = "https://api.telegram.org/bot";
-  const url = `${endpoint}${token}/`;
+  const url = `${endpoint}${token}`;
 
   console.log(
     "@ Debug: Execute -----------------------------------------------"
