@@ -81,8 +81,9 @@ app.post("/execute", async function (req, res) {
       // let registeredDate = getArgument("registeredDate", inArguments);
       const customMessage = inArguments[1]['customMessage'];
       const photo = inArguments[2]['bannerPhoto'];
-      const endpoint = `${url}/sendMessage`;
-
+      //const endpoint = `${url}/sendMessage`;
+      const endpoint = `${url}/sendPhoto`;
+      
       // customerName = customerName || "Marvin Lacuna";
       // registerDate = registerDate || "21/01/2025";
       // activeCode = activeCode || "12345";
@@ -92,7 +93,7 @@ app.post("/execute", async function (req, res) {
       //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
       
-      endpoint = `${url}/sendPhoto`;
+
       // if (photo) {
       //   endpoint = `${url}/sendPhoto`;
       //   messenger = `photo=${photo}&caption=${customMessage}}&parse_mode=HTML`;
