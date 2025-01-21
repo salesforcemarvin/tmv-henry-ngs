@@ -253,7 +253,7 @@ define(["postmonger"], function(Postmonger) {
 
     function save() {
         var value = getMessage();
-        //var photo = getBanner();
+        var photo = getBanner();
 
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
@@ -264,27 +264,16 @@ define(["postmonger"], function(Postmonger) {
         payload["arguments"].execute.inArguments = [{ message: value }];
         //payload["arguments"].execute.inArguments.push({"text": value})
 
-        // payload["arguments"].execute.inArguments = [
-        //     {
-        //         emailAddress: '{{InteractionDefaults.Email}}'
-        //     },
-        //     {
-        //         customMessage: value
-        //     },
-        //     {
-        //         bannerPhoto: photo
-        //     }
-        // ];
 
         payload["arguments"].execute.inArguments = [
-            {
-              'chat_id': "@bpisalesforce"
-            },
             {
               'emailAddress': '{{InteractionDefaults.Email}}'
             },
             {
               'customMessage': value
+            },
+            {
+                'bannerPhoto': photo
             }
           ];
 
@@ -304,27 +293,9 @@ define(["postmonger"], function(Postmonger) {
         connection.trigger("updateActivity", payload);
 
         console.log(inArguments.length);
-        console.log(inArguments[0]['chat_id']);
-        console.log(inArguments[1]['emailAddress']);
-        console.log(inArguments[2]['customMessage']);
-        //console.log(inArguments[2]['bannerPhoto']);
-
-
-
-        // if (Array.isArray(inArguments) && inArguments.length > 0) {
-        //     inArguments.forEach((item, key) => {
-        //     if (typeof item === 'object' && Object.hasOwn(item, key)) {
-        //         console.log(item[key]);
-        //     }
-        // });
-
-        // if (Array.isArray(inArguments) && inArguments.length > 0) {
-        //     inArguments.forEach((item, key) => {
-        //         if (typeof item === 'object' && item !== null && item.hasOwnProperty(key)) {
-        //             console.log(item[key]);
-        //         }
-        //     });
-        // }
+        console.log(inArguments[0]['emailAddress']);
+        console.log(inArguments[1]['customMessage']);
+        console.log(inArguments[2]['bannerPhoto']);
         
     }
 
