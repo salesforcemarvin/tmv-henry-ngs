@@ -80,8 +80,11 @@ app.post("/execute", async function (req, res) {
       // let activeCode = getArgument("activationCode", inArguments);
       // let registeredDate = getArgument("registeredDate", inArguments);
 
-      const customMessage = inArguments[1]['customMessage'];
+      const customMessage0 = inArguments[0]['customMessage'];
+      const customMessage1 = inArguments[1]['customMessage'];
+      const customMessage2 = inArguments[2]['customMessage'];
 
+      const cm = customMessage0 || customMessage1 || customMessage2;
       //chat_id = chat_id; //|| contact;
 
       // customerName = customerName || "Marvin Lacuna";
@@ -127,7 +130,7 @@ app.post("/execute", async function (req, res) {
 
       //for testing connectivity
       const response = await axios.get(
-        `${endpoint}?chat_id=${channel}&text=${customMessage}`
+        `${endpoint}?chat_id=${channel}&text=${cm}`
       );
 
 
