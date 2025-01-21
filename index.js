@@ -79,7 +79,7 @@ app.post("/execute", async function (req, res) {
       // let customerName = getArgument("customerName", inArguments);
       // let activeCode = getArgument("activationCode", inArguments);
       // let registeredDate = getArgument("registeredDate", inArguments);
-      const customMessage = inArguments[1]['customMessage'];
+      //const customMessage = inArguments[1]['customMessage'];
 
       //chat_id = chat_id; //|| contact;
 
