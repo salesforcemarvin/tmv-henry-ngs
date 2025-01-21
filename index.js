@@ -48,7 +48,7 @@ app.post("/execute", async function (req, res) {
   console.log("-------REQUEST------");
 
   let channel = "@bpisalesforce";
-  let contact = "632717898";
+  //let contact = "632717898";
   const token = "7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk";
   const endpoint = "https://api.telegram.org/bot";
   const url = `${endpoint}${token}`;
@@ -114,6 +114,7 @@ app.post("/execute", async function (req, res) {
       console.log(
         "@ Debug: Check messenger will be sent --------------------------------------------"
       );
+      comsole.log(endpoint);
       console.log(messenger);
 
       //const response = await axios.post(endpoint, messenger);
@@ -124,7 +125,7 @@ app.post("/execute", async function (req, res) {
 
       //for testing connectivity
       const response = await axios.get(
-        `${endpoint}?chat_id=${channel}&text=123456`
+        `${endpoint}?chat_id=${channel}&text=${text}`
       );
 
 
