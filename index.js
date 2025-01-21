@@ -7,23 +7,23 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 const config = require("./public/config.json");
-app.all("/save", function (req, res) {
+app.post("/save", function (req, res) {
   // Handle save request
   console.log("SAVE REQUEST");
   console.log(req.body);
   res.sendStatus(200);
 });
-app.all("/publish", function (req, res) {
+app.post("/publish", function (req, res) {
   // Handle publish request
   res.sendStatus(200);
 });
-app.all("/validate", function (req, res) {
+app.post("/validate", function (req, res) {
   // Handle validate request
   console.log("VALIDATE REQUEST");
   console.log(req.body);
   res.sendStatus(200);
 });
-app.all("/stop", async function (req, res) {
+app.post("/stop", async function (req, res) {
   console.log("STOPPING JOURNEY");
   console.log(req.body);
   res.send("Done");
@@ -41,7 +41,7 @@ const getArgument = (key, arg) => {
   return ret;
 }
 
-app.all("/execute", async function (req, res) {
+app.post("/execute", async function (req, res) {
   // Endpoint to handle the execution of the custom activity
 
   console.log("RUNNING CUSTOM ACTIVITY HERE");
@@ -100,11 +100,13 @@ app.all("/execute", async function (req, res) {
           parse_mode: "HTML",
         };
       } else {
-        messenger = {
-          chat_id,
-          text,
-          parse_mode: "HTML",
-        };
+        // messenger = {
+        //   chat_id,
+        //   text,
+        //   parse_mode: "HTML",
+        // };
+
+        customMessage = customMessage + " ADDED BY MARVIN";
       }
 
       console.log(
@@ -112,14 +114,13 @@ app.all("/execute", async function (req, res) {
       );
       //console.log(messenger);
 
-      const response = await axios.post(endpoint, messenger);
+      //const response = await axios.post(endpoint, messenger);
 
       //for testing connectivity
-      //const response = await axios.get(
-        //`${url}/sendMessage?chat_id=${chat_id}&text=${customMessage}`      
-        //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
-      //);
-
+      const response = await axios.get(
+        `${endpoint}?chat_id=${chat_id}&text=${customMessage}`      
+      );
+      //`https://api.telegram.org/bot7598854488:AAEMWBOFypqRJy5VvgOj-b10u0QrXpC1fXk/sendMessage?chat_id=@bpisalesforce&text=hahahahaha`
 
       res.send(response.data);
       res.status(200).send({ status: "success" });
