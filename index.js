@@ -73,12 +73,14 @@ app.post("/execute", async function (req, res) {
       // console.log(req.body);
 
       //let chat_id = getArgument("telegramID", inArguments);
-      let emailAddress = getArgument("emailAddress", inArguments);
-      let text = getArgument("customMessage", inArguments);
-      let photo = getArgument("bannerPhoto", inArguments);
-      let customerName = getArgument("customerName", inArguments);
-      let activeCode = getArgument("activationCode", inArguments);
-      let registerDate = getArgument("registeredDate", inArguments);
+      // let emailAddress = getArgument("emailAddress", inArguments);
+      // let text = getArgument("customMessage", inArguments);
+       let photo = getArgument("bannerPhoto", inArguments);
+      // let customerName = getArgument("customerName", inArguments);
+      // let activeCode = getArgument("activationCode", inArguments);
+      // let registeredDate = getArgument("registeredDate", inArguments);
+
+      const customMessage = inArguments[2]['customMessage'];
 
       //chat_id = chat_id; //|| contact;
 
@@ -92,7 +94,7 @@ app.post("/execute", async function (req, res) {
 
       // text = text
       //   .replace("[[customer_name]]", customerName)
-      //   .replace("[[registered_date]]", registerDate)
+      //   .replace("[[registered_date]]", registeredDate)
       //   .replace("[[registered_code]]", activeCode);
 
       if (photo) {
@@ -125,7 +127,7 @@ app.post("/execute", async function (req, res) {
 
       //for testing connectivity
       const response = await axios.get(
-        `${endpoint}?chat_id=${channel}&text=${text}`
+        `${endpoint}?chat_id=${channel}&text=${customMessage}`
       );
 
 
